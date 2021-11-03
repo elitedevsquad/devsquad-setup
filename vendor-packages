@@ -4,9 +4,9 @@ echo "1. Install PHP Unit"
 phpVersion=`php -r 'echo PHP_MAJOR_VERSION;'`
 if [[ "$phpVersion" -le "7" ]]
 then
-  composer require phpunit/phpunit "^9.3.3" --dev
-else
   composer require phpunit/phpunit "^8.5.8|^9.3.3" --dev
+else
+  composer require phpunit/phpunit "^9.3.3" --dev
 fi
 
 echo "2. Install PHP Mess Detector"
