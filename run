@@ -6,19 +6,19 @@ BBlue='\033[1;34m'
 
 echo "${BBlue}Installing .git/hooks${NC}"
 
-curl -s https://gist.githubusercontent.com/iammayron/116c79c131b1c6dd7485c5bb8141de6c/raw/98e781fb1073bc34fcd8607adc84139b0a99fe84/git-hooks | zsh
+curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/git-hooks | zsh
 
 echo "${BBlue}Installing necessary PHP packages${NC}"
 
-curl -s https://gist.githubusercontent.com/iammayron/116c79c131b1c6dd7485c5bb8141de6c/raw/af51af8d569eb6e504013b8c08e91603a585a3f4/vendor-packages | zsh
+curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/vendor-packages | zsh
 
 echo "${BBlue}Installing verification tools' settings files${NC}"
 
-curl -s https://gist.githubusercontent.com/iammayron/116c79c131b1c6dd7485c5bb8141de6c/raw/44d4651cac1ea4f5ca1d7817f263ba571b14faec/settings-files | zsh
+curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/settings-files | zsh
 
 echo "${BBlue}Installing necessary GitHub Actions${NC}"
 
-curl -s https://gist.githubusercontent.com/iammayron/116c79c131b1c6dd7485c5bb8141de6c/raw/44d4651cac1ea4f5ca1d7817f263ba571b14faec/github-actions | zsh
+curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/github-actions | zsh
 
 echo "\n${BBlue}Installing workspace directory${NC}"
 

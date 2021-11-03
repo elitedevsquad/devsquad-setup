@@ -1,14 +1,14 @@
 echo "1. Install .php-cs-fixer.php"
-curl https://gist.githubusercontent.com/iammayron/116c79c131b1c6dd7485c5bb8141de6c/raw/99b3df4e7e76b0b716a5e19f02b6a1192c281b8d/.php-cs-fixer.php -Ls > .php-cs-fixer.php
+curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/.php-cs-fixer.php -Ls > .php-cs-fixer.php
 
 echo "2. Install phpcs.xml"
-curl https://gist.githubusercontent.com/iammayron/116c79c131b1c6dd7485c5bb8141de6c/raw/99b3df4e7e76b0b716a5e19f02b6a1192c281b8d/phpcs.xml -Ls > phpcs.xml
+curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/phpcs.xml -Ls > phpcs.xml
 
 echo "3. Install phpmd.xml"
-curl https://gist.githubusercontent.com/iammayron/116c79c131b1c6dd7485c5bb8141de6c/raw/99b3df4e7e76b0b716a5e19f02b6a1192c281b8d/phpmd.xml -Ls > phpmd.xml
+curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/phpmd.xml -Ls > phpmd.xml
 
 echo "4. Install phpunit.xml"
-curl https://gist.githubusercontent.com/iammayron/116c79c131b1c6dd7485c5bb8141de6c/raw/99b3df4e7e76b0b716a5e19f02b6a1192c281b8d/phpunit.xml -Ls > phpunit.xml
+curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/phpunit.xml -Ls > phpunit.xml
 
 echo "5. Install phpunit-ci.xml"
-curl https://gist.githubusercontent.com/iammayron/116c79c131b1c6dd7485c5bb8141de6c/raw/99b3df4e7e76b0b716a5e19f02b6a1192c281b8d/phpunit-ci.xml -Ls > phpunit-ci.xml
+curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/phpunit-ci.xml -Ls > phpunit-ci.xml

@@ -1,2 +1,2 @@
 echo "1. Install .github/workflows/test.yml"
-curl https://gist.githubusercontent.com/iammayron/116c79c131b1c6dd7485c5bb8141de6c/raw/98e781fb1073bc34fcd8607adc84139b0a99fe84/github-workflows-test.yml -Ls > .github/workflows/test.yml
+curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/github-workflows-test.yml -Ls > .github/workflows/test.yml
