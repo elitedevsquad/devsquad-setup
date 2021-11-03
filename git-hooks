@@ -1,0 +1,8 @@
+echo "1. Install .git/hooks/pre-rebase"
+curl https://gist.githubusercontent.com/teamdevsquad/2dd5cfc334a21a090568f78074b039e2/raw/d63041398a6726148db1eb9a09bbe81e87823b74/pre-rebase -Ls > .git/hooks/pre-rebase
+
+echo "2. Install .git/hooks/pre-push"
+curl https://gist.githubusercontent.com/teamdevsquad/2dd5cfc334a21a090568f78074b039e2/raw/d63041398a6726148db1eb9a09bbe81e87823b74/pre-push -Ls > .git/hooks/pre-push
+
+echo "3. Install .git/hooks/commit-msg"
+curl https://gist.githubusercontent.com/teamdevsquad/2dd5cfc334a21a090568f78074b039e2/raw/d63041398a6726148db1eb9a09bbe81e87823b74/commit-msg -Ls > .git/hooks/commit-msg

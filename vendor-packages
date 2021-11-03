@@ -1,0 +1,14 @@
+echo "1. Install PHP Unit"
+composer require phpunit/phpunit "^9.3.3" --dev
+
+echo "2. Install PHP Mess Detector"
+composer require phpmd/phpmd "^2.9" --dev
+
+echo "3. Install PHP Code Sniffer"
+composer require squizlabs/php_codesniffer "^3.6" --dev
+
+echo "4. Install PHP CS Fixer"
+composer require friendsofphp/php-cs-fixer "^3.0" --dev
+
+echo "5. Install PHP CS Fixer"
+composer require brianium/paratest "^6.2" --dev
