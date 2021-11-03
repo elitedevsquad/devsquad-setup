@@ -4,7 +4,7 @@ phpVersion=`php -r 'echo PHP_MAJOR_VERSION;'`
 echo "$phpVersion"
 
 echo "1. Install PHP Unit"
-fi [[$phpVersion -lte 7]]
+if [[$phpVersion -lte 7]]
 then
   composer require phpunit/phpunit "^9.3.3" --dev
 else
