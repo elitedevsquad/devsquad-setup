@@ -3,8 +3,8 @@ name: CI
 on:
   pull_request:
     branches:
-    - develop
     - master
+    - develop
     - release/**
 
   workflow_dispatch:
@@ -28,6 +28,9 @@ jobs:
         ports:
           - 6379:6379
 
+    env:
+      DB_DATABASE: ci
+
     steps:
       - uses: actions/checkout@v2
 
@@ -38,7 +41,7 @@ jobs:
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
       - name: Install Node Modules
-        run: npm install --frozen-lockfile
+        run: npm ci
 
       - name: Build Assets
         run: npm run prod

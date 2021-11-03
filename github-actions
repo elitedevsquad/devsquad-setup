@@ -1,4 +1,0 @@
-#!/bin/sh
-
-echo "1. Install .github/workflows/test.yml"
-curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/github-workflows-test.yml -Ls > .github/workflows/test.yml
