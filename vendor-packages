@@ -1,7 +1,10 @@
 #!/bin/sh
-
-echo "1. Install PHP Unit"
 phpVersion=`php -r 'echo PHP_MAJOR_VERSION;'`
+
+echo "1. Update composer.lock file"
+composer update
+
+echo "2. Install PHP Unit"
 if [[ "$phpVersion" -le "7" ]]
 then
   composer require phpunit/phpunit "^8.5.8|^9.3.3" --dev
@@ -9,14 +12,19 @@ else
   composer require phpunit/phpunit "^9.3.3" --dev
 fi
 
-echo "2. Install PHP Mess Detector"
+echo "3. Install PHP Mess Detector"
 composer require phpmd/phpmd "^2.9" --dev
 
-echo "3. Install PHP Code Sniffer"
+echo "4. Install PHP Code Sniffer"
 composer require squizlabs/php_codesniffer "^3.6" --dev
 
-echo "4. Install PHP CS Fixer"
-composer require friendsofphp/php-cs-fixer "^3.0" --dev
-
 echo "5. Install PHP CS Fixer"
+if [[ "$phpVersion" -le "7" ]]
+then
+  composer require friendsofphp/php-cs-fixer "^2.0" --dev
+else
+  composer require friendsofphp/php-cs-fixer "^3.0" --dev
+fi
+
+echo "6. Install Paratest"
 composer require brianium/paratest "^6.2" --dev
