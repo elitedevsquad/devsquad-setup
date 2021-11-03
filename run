@@ -4,19 +4,19 @@
 NC='\033[0m'
 BBlue='\033[1;34m'
 
-echo "${BBlue}Installing .git/hooks${NC}"
+echo "\n${BBlue}Installing .git/hooks${NC}"
 
 curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/git-hooks | zsh
 
-echo "${BBlue}Installing necessary PHP packages${NC}"
+echo "\n${BBlue}Installing necessary PHP packages${NC}"
 
 curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/vendor-packages | zsh
 
-echo "${BBlue}Installing verification tools' settings files${NC}"
+echo "\n${BBlue}Installing verification tools' settings files${NC}"
 
 curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/settings-files | zsh
 
-echo "${BBlue}Installing necessary GitHub Actions${NC}"
+echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
 
 curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/github-actions | zsh
 
