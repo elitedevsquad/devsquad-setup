@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo "1. Install .git/hooks/pre-rebase"
 curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/pre-rebase -Ls > .git/hooks/pre-rebase
 

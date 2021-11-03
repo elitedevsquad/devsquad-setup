@@ -1,3 +1,8 @@
+#!/bin/sh
+
+var phpVersion = php -r 'echo PHP_MAJOR_VERSION';
+echo phpVersion;
+
 echo "1. Install PHP Unit"
 composer require phpunit/phpunit "^9.3.3" --dev
 
