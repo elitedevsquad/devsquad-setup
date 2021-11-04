@@ -8,6 +8,6 @@ BBlue='\033[1;34m'
 timestamp=`date +%Y%m%d%H%M%S`
 
 echo "${BBlue}Starting...${NC}"
-curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/run -o ./run-${timestamp}
+curl -s https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run -o ./run-${timestamp}
 zsh ./run-${timestamp}
 rm -f run-${timestamp}

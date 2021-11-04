@@ -1,16 +1,16 @@
 #!/bin/sh
 
 echo "1. Install .php-cs-fixer.php"
-curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/verification-tools/.php-cs-fixer.php -Ls > .php-cs-fixer.php
+curl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/.php-cs-fixer.php -Ls > .php-cs-fixer.php
 
 echo "2. Install phpcs.xml"
-curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/verification-tools/phpcs.xml -Ls > phpcs.xml
+curl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/phpcs.xml -Ls > phpcs.xml
 
 echo "3. Install phpmd.xml"
-curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/verification-tools/phpmd.xml -Ls > phpmd.xml
+curl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/phpmd.xml -Ls > phpmd.xml
 
 echo "4. Install phpunit.xml"
-curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/verification-tools/phpunit.xml -Ls > phpunit.xml
+curl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/phpunit.xml -Ls > phpunit.xml
 
 echo "5. Install phpunit-ci.xml"
-curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/verification-tools/phpunit-ci.xml -Ls > phpunit-ci.xml
+curl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/phpunit-ci.xml -Ls > phpunit-ci.xml
