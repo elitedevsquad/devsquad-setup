@@ -1,5 +1,11 @@
 # Make 2.0
 
+## Installation
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)"
+```
+
 ### If this project uses Vapor
 
 #### Create a new Slack Incoming Webhook
