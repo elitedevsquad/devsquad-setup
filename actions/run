@@ -14,23 +14,26 @@ then
   echo "\n1. Install .github/workflows/test.yml"
   curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/actions/test.yml -Ls > .github/workflows/test.yml
 
-  productionStep=2
+  echo "2. Install .github/workflows/deployment-notifications.yml"
+  curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/actions/deployment-notifications.yml -Ls > .github/workflows/deployment-notifications.yml
+
+  productionStep=3
   if [[ "$SANDBOX" == "Y" && "$STAGING" == "Y" ]]
   then
-    echo "2. Install .github/workflows/deploy-sandbox.yml"
+    echo "3. Install .github/workflows/deploy-sandbox.yml"
     curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/actions/deploy-sandbox.yml -Ls > .github/workflows/deploy-sandbox.yml
 
-    echo "3. Install .github/workflows/deploy-staging.yml"
+    echo "4. Install .github/workflows/deploy-staging.yml"
     curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/actions/deploy-staging.yml -Ls > .github/workflows/deploy-staging.yml
 
-    productionStep=4
+    productionStep=5
   else
     if [[ "$STAGING" == "Y" ]]
     then
-      echo "2. Install .github/workflows/deploy-staging.yml"
+      echo "3. Install .github/workflows/deploy-staging.yml"
       curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/actions/deploy-staging-without-sandbox.yml -Ls > .github/workflows/deploy-staging.yml
 
-      productionStep=3
+      productionStep=4
     fi
   fi
 
