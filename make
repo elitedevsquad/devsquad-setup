@@ -5,4 +5,4 @@ NC='\033[0m'
 BBlue='\033[1;34m'
 
 echo "${BBlue}Starting...${NC}"
-curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/run | zsh
+zsh <(curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/run)
