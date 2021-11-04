@@ -16,7 +16,8 @@ BRANCH_NAME=$(git symbolic-ref --short HEAD)
 # Extract issue id from branch name
 ISSUE_ID=$(echo "$BRANCH_NAME" | grep -o -E "$REGEX_ISSUE_ID")
 
-if [[ -z "$ISSUE_ID" ]]; then
+if [[ -z "$ISSUE_ID" ]]
+then
     echo -e "${BRed}Branch doesn't have Jira task code on itq... ${NC}"
     echo -e "${BBlue}You can use ${BRed}git commit -m \"\" --no-verify${BBlue} to avoid this hook.${NC}"
     exit 1

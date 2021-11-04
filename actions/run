@@ -1,15 +1,12 @@
 #!/bin/sh
 
-echo "\n${BRed}Is this project using Vapor? (Please enter: Y for yes or N for no)${NC}"
-read VAPOR;
+read -p "\n${BRed}Is this project using Vapor? (Please enter: Y for yes or N for no)${NC}" -r VAPOR
 
 if [[ "$VAPOR" == "Y" ]]
 then
-  echo "\n${BRed}Have this project a sandbox environment? (Please enter: Y for yes or N for no)${NC}"
-  read SANDBOX;
+  read -p "\n${BRed}Have this project a sandbox environment? (Please enter: Y for yes or N for no)${NC}" -r SANDBOX
 
-  echo "\n${BRed}Have this project a staging environment? (Please enter: Y for yes or N for no)${NC}"
-  read STAGING;
+  read -p "\n${BRed}Have this project a staging environment? (Please enter: Y for yes or N for no)${NC}" -r STAGING
 
   echo "\n1. Install .github/workflows/test.yml"
   curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/actions/test.yml -Ls > .github/workflows/test.yml

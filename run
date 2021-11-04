@@ -18,8 +18,9 @@ echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
 source <(curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/actions/run)
 
 echo "\n${BBlue}Installing workspace directory${NC}"
-if [ ! -d './workspace' ]; then
-    mkdir ./workspace;
+if [ ! -d './workspace' ]
+then
+    mkdir ./workspace
     echo "*
 !.gitignore" > ./workspace/.gitignore
 fi
