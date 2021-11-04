@@ -5,16 +5,16 @@ NC='\033[0m'
 BBlue='\033[1;34m'
 
 echo "\n${BBlue}Installing .git/hooks${NC}"
-zsh <(curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/hooks/run)
+source <(curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/hooks/run)
 
 echo "\n${BBlue}Installing necessary PHP packages${NC}"
-zsh <(curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/vendor-packages)
+source <(curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/vendor-packages)
 
 echo "\n${BBlue}Installing verification tools' settings files${NC}"
-zsh <(curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/verification-tools/run)
+source <(curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/verification-tools/run)
 
 echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
-zsh <(curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/actions/run)
+source <(curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/actions/run)
 
 echo "\n${BBlue}Installing workspace directory${NC}"
 if [ ! -d './workspace' ]; then
