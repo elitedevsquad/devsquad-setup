@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Colors
+NC='\033[0m'
+BBlue='\033[1;34m'
+BRed='\033[1;33m'
+
 echo "\n${BBlue}Installing .git/hooks${NC}"
 source <(curl -s https://raw.githubusercontent.com/iammayron/devsquad-setup/master/hooks/run)
 
