@@ -1,6 +1,6 @@
 # Make 2.0
 
-### If this project uses Vapor
+### If this project use Vapor
 
 #### Create a new Slack Incoming Webhook
 
