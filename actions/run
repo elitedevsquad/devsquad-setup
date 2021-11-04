@@ -1,17 +1,17 @@
 #!/bin/sh
 
-echo "\n${BBlue}Is this project using Vapor? (Please enter: Y for yes or N for no)${NC}"
+echo "\n${BRed}Is this project using Vapor? (Please enter: Y for yes or N for no)${NC}"
 read VAPOR;
 
 if [[ "$VAPOR" == "Y" ]]
 then
-  echo "\n${BBlue}Have this project a sandbox environment? (Please enter: Y for yes or N for no)${NC}"
+  echo "\n${BRed}Have this project a sandbox environment? (Please enter: Y for yes or N for no)${NC}"
   read SANDBOX;
 
-  echo "\n${BBlue}Have this project a staging environment? (Please enter: Y for yes or N for no)${NC}"
+  echo "\n${BRed}Have this project a staging environment? (Please enter: Y for yes or N for no)${NC}"
   read STAGING;
 
-  echo "1. Install .github/workflows/test.yml"
+  echo "\n1. Install .github/workflows/test.yml"
   curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/actions/test.yml -Ls > .github/workflows/test.yml
 
   productionStep=2
@@ -27,7 +27,7 @@ then
   else
     if [[ "$STAGING" == "Y" ]]
     then
-      echo "2. Install .github/workflows/deploy-production.yml"
+      echo "2. Install .github/workflows/deploy-staging.yml"
       curl https://raw.githubusercontent.com/iammayron/devsquad-setup/master/actions/deploy-staging-without-sandbox.yml -Ls > .github/workflows/deploy-staging.yml
 
       productionStep=3
