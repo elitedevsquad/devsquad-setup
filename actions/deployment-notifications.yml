@@ -19,7 +19,7 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: Actions
           SLACK_COLOR: "#3B82F6"
-          SLACK_ICON: "https://iconape.com/wp-content/png_logo_vector/laravel-vapor.png"
+          SLACK_ICON: "https://github.com/iammayron/devsquad-setup/blob/master/actions/laravel-vapor.png"
           SLACK_MESSAGE: "Build queued"
           SLACK_FOOTER: "Action: ${{ github.event.workflow_run.name }}"
 
@@ -35,7 +35,7 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: Actions
-          SLACK_ICON: "https://iconape.com/wp-content/png_logo_vector/laravel-vapor.png"
+          SLACK_ICON: "https://github.com/iammayron/devsquad-setup/blob/master/actions/laravel-vapor.png"
           SLACK_MESSAGE: "Build Succeeded :white_check_mark:"
           SLACK_FOOTER: "Action: ${{ github.event.workflow_run.name }}"
 
@@ -52,7 +52,7 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: Actions
-          SLACK_ICON: "https://iconape.com/wp-content/png_logo_vector/laravel-vapor.png"
+          SLACK_ICON: "https://github.com/iammayron/devsquad-setup/blob/master/actions/laravel-vapor.png"
           SLACK_COLOR: "failure"
           SLACK_MESSAGE: "Build Failed :x:"
           SLACK_FOOTER: "Action: ${{ github.event.workflow_run.name }}"
