@@ -14,34 +14,34 @@ then
   read STAGING
 
   echo "\n1. Install .github/workflows/test.yml"
-  curl -s -o .github/workflows/test.yml https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/test.yml
+  curl -s -o .github/workflows/test.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/actions/test.yml"
 
   echo "2. Install .github/workflows/deployment-notifications.yml"
-  curl -s -o .github/workflows/deployment-notifications.yml https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/deployment-notifications.yml
+  curl -s -o .github/workflows/deployment-notifications.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/actions/deployment-notifications.yml"
 
   productionStep=3
   if [[ "$SANDBOX" == "Y" && "$STAGING" == "Y" ]]
   then
     echo "3. Install .github/workflows/deploy-sandbox.yml"
-    curl -s -o .github/workflows/deploy-sandbox.yml https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/deploy-sandbox.yml
+    curl -s -o .github/workflows/deploy-sandbox.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/actions/deploy-sandbox.yml"
 
     echo "4. Install .github/workflows/deploy-staging.yml"
-    curl -s -o .github/workflows/deploy-staging.yml https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/deploy-staging.yml
+    curl -s -o .github/workflows/deploy-staging.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/actions/deploy-staging.yml"
 
     productionStep=5
   else
     if [[ "$STAGING" == "Y" ]]
     then
       echo "3. Install .github/workflows/deploy-staging.yml"
-      curl -s -o .github/workflows/deploy-staging.yml https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/deploy-staging-without-sandbox.yml
+      curl -s -o .github/workflows/deploy-staging.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/actions/deploy-staging-without-sandbox.yml"
 
       productionStep=4
     fi
   fi
 
   echo "${productionStep}. Install .github/workflows/deploy-production.yml"
-  curl -s -o .github/workflows/deploy-production.yml https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/deploy-production.yml
+  curl -s -o .github/workflows/deploy-production.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/actions/deploy-production.yml"
 else
   echo "1. Install .github/workflows/test.yml"
-  curl -s -o .github/workflows/test.yml https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/test.yml
+  curl -s -o .github/workflows/test.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/actions/test.yml"
 fi

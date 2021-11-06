@@ -1,13 +1,13 @@
 #!/bin/sh
 
 echo "1. Install .git/hooks/pre-rebase"
-curl -s -o .git/hooks/pre-rebase https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/pre-rebase
+curl -s -o .git/hooks/pre-rebase "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/hooks/pre-rebase"
 chmod +x .git/hooks/pre-rebase
 
 echo "2. Install .git/hooks/pre-push"
-curl -s -o .git/hooks/pre-push https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/pre-push
+curl -s -o .git/hooks/pre-push "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/hooks/pre-push"
 chmod +x .git/hooks/pre-push
 
 echo "3. Install .git/hooks/commit-msg"
-curl -s -o .git/hooks/commit-msg https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/commit-msg
+curl -s -o .git/hooks/commit-msg "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/hooks/commit-msg"
 chmod +x .git/hooks/commit-msg

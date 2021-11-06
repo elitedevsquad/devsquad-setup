@@ -18,6 +18,6 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: "DevSquad | Elite Software Developers on Demand"
           SLACK_COLOR: "good"
-          SLACK_ICON: "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/.github/workflows/devsquad-logo.png"
+          SLACK_ICON: "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/.github/workflows/devsquad-logo.png"
           SLACK_TITLE: "Update Available"
-          SLACK_MESSAGE: "Our setup workflow was updated, please run the command below to update your local environment: ```sh -c \"$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)\"```"
+          SLACK_MESSAGE: "Our setup workflow was updated, please run the command below to update your local environment: ```sh -c \"$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/run)\"```"
