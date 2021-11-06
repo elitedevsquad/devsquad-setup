@@ -2,9 +2,30 @@
 
 ## Installation
 
+Run the command below and everything will be done automagically:
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)"
 ```
+
+After running the command, please add these scripts in your composer.json file:
+
+```json
+{
+  "scripts": {
+    "fix": [
+      "./vendor/bin/php-cs-fixer fix --using-cache=no --verbose"
+    ],
+    "verify": [
+      "./vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --verbose --stop-on-violation",
+      "./vendor/bin/phpcs --standard=phpcs.xml",
+      "./vendor/bin/phpmd app text ./phpmd.xml",
+      "./vendor/bin/phpunit"
+    ]
+  }
+}
+```
+
+
 
 ### If this project uses Vapor
 
