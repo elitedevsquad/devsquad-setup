@@ -20,4 +20,4 @@ jobs:
           SLACK_COLOR: "good"
           SLACK_ICON: "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/.github/workflows/devsquad-logo.png"
           SLACK_TITLE: "Update Available"
-          SLACK_MESSAGE: "Our setup workflow was updated, please run the command ```sh -c \"$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)\"``` to update your local environment."
+          SLACK_MESSAGE: "Our setup workflow was updated, please run the command below to update your local environment: ```sh -c \"$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)\"```"
