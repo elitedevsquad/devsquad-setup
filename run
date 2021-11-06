@@ -7,19 +7,19 @@ BRed='\033[1;33m'
 CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
 
 echo "\n${BBlue}Installing .git/hooks${NC}"
-sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/hooks/run)"
+sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run)"
 
 echo "\n${BBlue}Installing necessary PHP packages${NC}"
-sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/vendor-packages)"
+sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/vendor-packages)"
 
 echo "\n${BBlue}Installing verification tools' settings files${NC}"
-sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/verification-tools/run)"
+sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/run)"
 
 echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
-sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/actions/run)"
+sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/run)"
 
 # Laravel Sail
-sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/laravel-sail)"
+sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/laravel-sail)"
 
 echo "\n${BBlue}Installing workspace directory${NC}"
 if [ ! -d './workspace' ]
