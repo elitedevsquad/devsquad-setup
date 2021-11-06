@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mkdir -p ./.github/workflows
+mkdir ./.github && mkdir ./.github/workflows
 
 echo "\n${BRed}Is this project using Vapor? (Y for yes or N for no)${NC}"
 read VAPOR

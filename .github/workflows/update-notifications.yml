@@ -1,8 +1,6 @@
 name: Deployment Notifications
 
-on:
-  push:
-    branches: master
+on: [workflow_dispatch]
 
 jobs:
   update-available:
