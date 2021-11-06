@@ -4,7 +4,7 @@
 
 Run the command below and everything will be done automagically:
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/${CURRENT_BRANCH}/run)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)"
 ```
 
 After running the command, please add these scripts in your composer.json file:
