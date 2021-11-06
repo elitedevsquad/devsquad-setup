@@ -29,6 +29,8 @@ After running the command, please add these scripts in your composer.json file:
 
 ### If this project uses Vapor
 
+_The instructions below should be executed **only one time by the repository's admin**._
+
 #### Create a new Slack Incoming Webhook
 
 Use this link https://teamdevsquad.slack.com/apps/A0F7XDUAZ-incoming-webhooks?tab=more_info to create a new incoming

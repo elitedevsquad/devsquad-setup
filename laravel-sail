@@ -1,0 +1,22 @@
+#!/bin/sh
+
+echo "\n${BRed}Do you want to use Laravel Sail on this project? (Y for yes or N for no)${NC}"
+read SAIL
+
+if [[ SAIL == "Y" ]]
+then
+  echo "\n1. Install Laravel Sail\n"
+  composer require laravel/sail --dev
+
+  echo "\n${BRed}Do you want to use MySQL or MariaDB on this project? (1 for MySQL or 2 for MariaDB)${NC}"
+  read DATABASE
+
+  if [[ DATABASE == "1"]]
+  then
+    echo "\n2. Create docker-composer.yml file with MySQL and Redis\n"
+    php artisan sail:install --with=mysql,redis -q -n
+  else
+    echo "\n2. Create docker-composer.yml file with MariaDB and Redis\n"
+    php artisan sail:install --with=mariadb,redis -q -n
+  fi
+fi
