@@ -10,8 +10,7 @@ BRed='\033[1;33m'
 echo "\n${BRed}Is this project using Vapor? (Y for yes or N for no)${NC}"
 read VAPOR
 
-if [[ "$VAPOR" == "Y" ]]
-then
+if [ "$VAPOR" == "Y" ]; then
   echo "\n${BRed}Have this project a sandbox environment? (Y for yes or N for no)${NC}"
   read SANDBOX
 
@@ -25,8 +24,7 @@ then
   curl -s -o .github/workflows/deployment-notifications.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/deployment-notifications.yml"
 
   productionStep=3
-  if [[ "$SANDBOX" == "Y" && "$STAGING" == "Y" ]]
-  then
+  if [ "$SANDBOX" == "Y" && "$STAGING" == "Y" ]; then
     echo "3. Install .github/workflows/deploy-sandbox.yml"
     curl -s -o .github/workflows/deploy-sandbox.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/deploy-sandbox.yml"
 
@@ -35,8 +33,7 @@ then
 
     productionStep=5
   else
-    if [[ "$STAGING" == "Y" ]]
-    then
+    if [ "$STAGING" == "Y" ]; then
       echo "3. Install .github/workflows/deploy-staging.yml"
       curl -s -o .github/workflows/deploy-staging.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/deploy-staging-without-sandbox.yml"
 
