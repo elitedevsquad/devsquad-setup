@@ -24,7 +24,7 @@ if [ "$VAPOR" == "Y" ]; then
   curl -s -o .github/workflows/deployment-notifications.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/deployment-notifications.yml"
 
   productionStep=3
-  if [ "$SANDBOX" == "Y" && "$STAGING" == "Y" ]; then
+  if [[ "$SANDBOX" == "Y" && "$STAGING" == "Y" ]]; then
     echo "3. Install .github/workflows/deploy-sandbox.yml"
     curl -s -o .github/workflows/deploy-sandbox.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/deploy-sandbox.yml"
 
