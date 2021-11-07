@@ -15,10 +15,10 @@ if [ "$SAIL" == "Y" ]; then
   read DATABASE
 
   if [ "$DATABASE" == "1" ]; then
-    echo "\n2. Create docker-composer.yml file with MySQL and Redis\n"
+    echo "\n2. Create docker-compose.yml file with MySQL and Redis\n"
     php artisan sail:install --with=mysql,redis -q -n
   else
-    echo "\n2. Create docker-composer.yml file with MariaDB and Redis\n"
+    echo "\n2. Create docker-compose.yml file with MariaDB and Redis\n"
     php artisan sail:install --with=mariadb,redis -q -n
   fi
 fi
