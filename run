@@ -8,17 +8,21 @@ BRed='\033[1;33m'
 echo "\n${BBlue}Installing .git/hooks${NC}"
 sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run)"
 
-echo "\n${BBlue}Installing necessary PHP packages${NC}"
-sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/vendor-packages)"
+echo "\n${BRed}Do you want to install the PHP Verification Tools? (Y for yes or N for no)${NC}"
+read PHPPACKAGES
 
-echo "\n${BBlue}Installing verification tools' settings files${NC}"
-sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/run)"
+if [ "$PHPPACKAGES" == "Y" ]; then
+  echo "\n${BBlue}Installing necessary PHP packages${NC}"
+  sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/vendor-packages)"
 
-echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
-sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/run)"
+  echo "\n${BBlue}Installing verification tools' settings files${NC}"
+  sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/run)"
 
-# Laravel Sail
-sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/laravel-sail)"
+  echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
+  sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/run)"
+
+  sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/laravel-sail)"
+fi
 
 echo "\n${BBlue}Installing workspace directory${NC}"
 if [ ! -d './workspace' ]
