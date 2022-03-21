@@ -11,7 +11,7 @@ sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-set
 echo "\n${BRed}Do you want to create the GitHub templates? (Y for yes or N for no)${NC}"
 read TEMPLATES
 
-if [ "$TEMPALTES" == "Y" ]; then
+if [ "$TEMPLATES" == "Y" ]; then
     echo "\n${BBlue}Installing .github templates${NC}"
     curl -s -o .github/pull_request_template.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/pull_request_template.yml"
 fi
