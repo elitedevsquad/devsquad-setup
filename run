@@ -12,7 +12,7 @@ echo "\n${BRed}Do you want to create the Pull Request template? (Y for yes or N 
 read PRTEMPLATE
 
 if [ "$PRTEMPLATE" == "Y" ]; then
-    echo "\n${BBlue}Installing .github templates${NC}"
+    echo "\n${BBlue}Installing .github pull request template${NC}"
     curl -s -o .github/pull_request_template.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/pull_request_template.yml"
 fi
 
