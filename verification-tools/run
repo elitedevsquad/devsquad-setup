@@ -14,3 +14,6 @@ curl -s -o phpunit.xml "https://raw.githubusercontent.com/elitedevsquad/devsquad
 
 echo "5. Install phpunit-ci.xml"
 curl -s -o phpunit-ci.xml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/phpunit-ci.xml"
+
+echo "5. Install phpstan.neon"
+curl -s -o phpstan.neon "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/phpstan.neon"
