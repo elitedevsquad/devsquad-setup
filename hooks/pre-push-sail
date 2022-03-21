@@ -10,7 +10,7 @@ echo "Running pre-push hook on: ${BBlue}" $NAME "${NC}"
 # ----------------------------------------------------------------------------------------
 # 1. PHP Mess Detector
 echo "${BBlue}1. PHP Mess Detector${NC}"
-./vendor/bin/phpmd app text ./phpmd.xml
+./vendor/bin/sail ./vendor/bin/phpmd app text ./phpmd.xml
 
 STATUS_CODE=$?
 if [ $STATUS_CODE -ne 0 ]; then
@@ -21,7 +21,7 @@ fi
 # ----------------------------------------------------------------------------------------
 # 2. PHP Code Sniffer
 echo "${BBlue}2. PHP Code Sniffer${NC}"
-./vendor/bin/phpcs --standard=phpcs.xml
+./vendor/bin/sail ./vendor/bin/phpcs --standard=phpcs.xml
 
 STATUS_CODE=$?
 if [ $STATUS_CODE -ne 0 ]; then
@@ -32,7 +32,7 @@ fi
 # ----------------------------------------------------------------------------------------
 # 3. PHP Code Fixer
 echo "${BBlue}3. PHP Code Fixer${NC}"
-./vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --verbose --stop-on-violation
+./vendor/bin/sail ./vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --verbose --stop-on-violation
 
 STATUS_CODE=$?
 if [ $STATUS_CODE -ne 0 ]; then
@@ -43,7 +43,7 @@ fi
 # ----------------------------------------------------------------------------------------
 # 4. Larastan
 echo "${BBlue}4. Larastan${NC}"
-./vendor/bin/phpstan analyse
+./vendor/bin/sail ./vendor/bin/phpstan analyse
 
 STATUS_CODE=$?
 if [ $STATUS_CODE -ne 0 ]; then
@@ -54,7 +54,7 @@ fi
 # ----------------------------------------------------------------------------------------
 # 5. PHP Unit Tests
 echo "${BBlue}5. Running Tests${NC}"
-php artisan test --parallel
+./vendor/bin/sail artisan test --parallel
 
 STATUS_CODE=$?
 if [ $STATUS_CODE -ne 0 ]; then

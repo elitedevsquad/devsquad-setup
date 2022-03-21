@@ -8,28 +8,46 @@ BRed='\033[1;33m'
 echo "\n${BBlue}Installing .git/hooks${NC}"
 sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run)"
 
+echo "\n${BRed}Do you want to create the GitHub templates? (Y for yes or N for no)${NC}"
+read TEMPLATES
+
+if [ "$TEMPALTES" == "Y" ]; then
+    echo "\n${BBlue}Installing .github templates${NC}"
+    curl -s -o .github/pull_request_template.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/pull_request_template.yml"
+fi
+
 echo "\n${BRed}Do you want to install the PHP Verification Tools? (Y for yes or N for no)${NC}"
 read PHPPACKAGES
 
 if [ "$PHPPACKAGES" == "Y" ]; then
-  echo "\n${BBlue}Installing necessary PHP packages${NC}"
-  sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/vendor-packages)"
+    echo "\n${BBlue}Installing necessary PHP packages${NC}"
+    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/vendor-packages)"
 
-  echo "\n${BBlue}Installing verification tools' settings files${NC}"
-  sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/run)"
+    echo "\n${BBlue}Installing verification tools' settings files${NC}"
+    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/run)"
 
-  echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
-  sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/run)"
+    echo "\n${BRed}Do you want to use Laravel Sail on this project? (Y for yes or N for no)${NC}"
+    read SAIL
 
-  sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/laravel-sail)"
+    if [ "$SAIL" == "Y" ]; then
+        # Laravel Sail
+        sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/laravel-sail)"
+    fi
+
+    if [ "$SAIL" == 'Y' ]; then
+        echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
+        sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/run-sail)"
+    else
+        echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
+        sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/run)"
+    fi
 fi
 
 echo "\n${BBlue}Installing workspace directory${NC}"
-if [ ! -d './workspace' ]
-then
+if [ ! -d './workspace' ]; then
     mkdir ./workspace
     echo "*
-!.gitignore" > ./workspace/.gitignore
+!.gitignore" >./workspace/.gitignore
 fi
 
 echo "\n${BBlue}All done! 😎${NC}"

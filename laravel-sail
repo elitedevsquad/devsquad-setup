@@ -4,21 +4,16 @@
 NC='\033[0m'
 BRed='\033[1;33m'
 
-echo "\n${BRed}Do you want to use Laravel Sail on this project? (Y for yes or N for no)${NC}"
-read SAIL
+echo "\n1. Install Laravel Sail\n"
+composer require laravel/sail --dev
 
-if [ "$SAIL" == "Y" ]; then
-  echo "\n1. Install Laravel Sail\n"
-  composer require laravel/sail --dev
+echo "\n${BRed}Do you want to use MySQL or MariaDB on this project? (1 for MySQL or 2 for MariaDB)${NC}"
+read DATABASE
 
-  echo "\n${BRed}Do you want to use MySQL or MariaDB on this project? (1 for MySQL or 2 for MariaDB)${NC}"
-  read DATABASE
-
-  if [ "$DATABASE" == "1" ]; then
+if [ "$DATABASE" == "1" ]; then
     echo "\n2. Create docker-compose.yml file with MySQL and Redis\n"
     php artisan sail:install --with=mysql,redis -q -n
-  else
+else
     echo "\n2. Create docker-compose.yml file with MariaDB and Redis\n"
     php artisan sail:install --with=mariadb,redis -q -n
-  fi
 fi

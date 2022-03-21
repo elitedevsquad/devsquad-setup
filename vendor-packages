@@ -24,5 +24,8 @@ else
   composer require friendsofphp/php-cs-fixer "^3.0" --dev
 fi
 
-echo "\n6. Install Paratest\n"
+echo "\n6. Install Larastan\n"
+composer require --dev nunomaduro/larastan
+
+echo "\n7. Install Paratest\n"
 composer require brianium/paratest "^6.2" --dev
