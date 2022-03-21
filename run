@@ -9,9 +9,9 @@ echo "\n${BBlue}Installing .git/hooks${NC}"
 sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run)"
 
 echo "\n${BRed}Do you want to create the GitHub templates? (Y for yes or N for no)${NC}"
-read TEMPLATES
+read GITHUB_TEMPLATES
 
-if [ "$TEMPLATES" == "Y" ]; then
+if [ "$GITHUB_TEMPLATES" == "Y" ]; then
     echo "\n${BBlue}Installing .github templates${NC}"
     curl -s -o .github/pull_request_template.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/pull_request_template.yml"
 fi
