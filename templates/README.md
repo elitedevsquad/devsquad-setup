@@ -88,7 +88,7 @@ git checkout -b enhancement/JIRA-123
 git checkout -b hotfix/JIRA-123
 ```
 
-4. Bugfix ![](https://team-devsquad.atlassian.net/secure/viewavatar?avatarId=10308&avatarType=issuetype) _(Bugs that could be fixed after the same release or on the next release, you will use it, if the source branch was already merged or if the fix could isn't super urgent)_
+4. Bugfix ![](https://team-devsquad.atlassian.net/secure/viewavatar?avatarId=10308&avatarType=issuetype) _(Bugs that could be fixed after in the current release or in the next, you'll use it, if the source branch was already merged or if the fix could isn't super urgent)_
 ```
 git checkout -b bugfix/JIRA-123
 ```
