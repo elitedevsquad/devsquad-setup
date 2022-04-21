@@ -64,6 +64,12 @@ php artisan test
 php artisan test --parallel
 ```
 
+### Other Commands
+_This is the place to put other commands needed in this project._
+
+### Other Settings
+_This is the place to put other settings needed in this project._
+
 ### Branches Standard
 _Please, pay attention to the Jira task before creating a new branch, you should find which of these prefixes fits better with the Jira task and after the prefix put the Jira task ID._
 
