@@ -139,7 +139,13 @@ git checkout -b hotfix/JIRA-123
 git checkout -b bugfix/JIRA-123
 ```
 
-5. Release _(You should use it to merge the approved branches)_
+5. Task _(You should use it for tasks like Laravel upgrade)_
+
+```shell
+git checkout -b task/JIRA-123
+```
+
+6. Release _(You should use it to merge the approved branches)_
 
 ```shell
 git checkout -b release/0.1.0
