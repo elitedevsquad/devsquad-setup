@@ -12,6 +12,8 @@ Node Version:
 NPM Version:
 ```
 
+_Remember to use **redis** for the CACHE_DRIVER, QUEUE_CONNECTION, SESSION_DRIVER settings._
+
 ### Third-party Dependencies
 
 _Packages that were installed and need some attention during the environment setup and coding time. Eg:_
