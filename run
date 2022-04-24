@@ -21,10 +21,10 @@ if [ "$LARAVELSAIL" == "Y" ]; then
 fi
 
 if [ "$LARAVELSAIL" == "Y" ]; then
-    echo "\n${BBlue}Installing .git/hooks${NC}"
+    echo "\n${BBlue}Installing .git/hooks\n${NC}"
     sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run-sail)"
 else
-    echo "\n${BBlue}Installing .git/hooks${NC}"
+    echo "\n${BBlue}Installing .git/hooks\n${NC}"
     sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run)"
 fi
 

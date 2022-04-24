@@ -9,7 +9,7 @@ for i in "${PHPVERSION[@]}"; do
 done
 phpVersion=$(echo $max | cut -c 1)
 
-laravelVersion=$(./vendor/bin/sail show 'laravel/framework' | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1)
+laravelVersion=$(./vendor/bin/sail composer show 'laravel/framework' | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1)
 
 echo "\n1. Update composer.lock file\n"
 ./vendor/bin/sail composer update

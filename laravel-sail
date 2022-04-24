@@ -21,7 +21,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "\n${BBlue}1. Installing Laravel Sail${NC}\n"
+echo "\n${BBlue}Installing Laravel Sail${NC}\n"
 docker run --rm \
     -u "$(id -u):$(id -g)" \
     -v $(pwd):/var/www/html \
@@ -30,7 +30,7 @@ docker run --rm \
     bash -c "composer require laravel/sail --dev --no-cache" \
     composer install --ignore-platform-reqs
 
-echo "\n${BBlue}2. Installing PHP Packages${NC}\n"
+echo "\n${BBlue}Installing PHP Packages${NC}\n"
 docker run --rm \
     -u "$(id -u):$(id -g)" \
     -v $(pwd):/var/www/html \
@@ -44,10 +44,16 @@ read DATABASE
 
 databases=(mysql pgsql mariadb)
 
-echo "\n${BBlue}3. Creating the docker-composer.yml file (with ${databases[DATABASE]}, redis, and mailhog)\n${NC}"
+echo "\n${BBlue}Creating the docker-composer.yml file (with ${databases[DATABASE]}, redis, and mailhog)\n${NC}"
 docker run --rm \
     -u "$(id -u):$(id -g)" \
     -v $(pwd):/var/www/html \
     -w /var/www/html \
     "laravelsail/php$phpVersion-composer:latest" \
     bash -c "php artisan sail:install --with=${databases[DATABASE]},redis,mailhog"
+
+echo "\n${BBlue}Initializing Laravel Sail\n${NC}"
+./vendor/bin/sail up -d
+
+echo "\n${BBlue}Remember to create the bash alias below\n${NC}"
+echo "alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'"
