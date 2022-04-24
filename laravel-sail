@@ -56,4 +56,4 @@ echo "\n${BBlue}Initializing Laravel Sail\n${NC}"
 ./vendor/bin/sail up -d
 
 echo "\n${BBlue}Remember to create the bash alias below\n${NC}"
-echo "alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'"
+echo "${BRed}alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'${NC}"
