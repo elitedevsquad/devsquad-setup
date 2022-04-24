@@ -18,7 +18,7 @@ if [ "$LARAVELSAIL" == 'Y']
     if [ "$INSTALLSAIL" == "Y" ]; then
         sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/laravel-sail)"
     fi
-fi;
+fi
 
 if [ "$LARAVELSAIL" == 'Y' ]; then
     echo "\n${BBlue}Installing .git/hooks${NC}"
