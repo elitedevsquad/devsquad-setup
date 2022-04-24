@@ -51,9 +51,3 @@ docker run --rm \
     -w /var/www/html \
     "laravelsail/php$phpVersion-composer:latest" \
     bash -c "php artisan sail:install --with=${databases[DATABASE]},redis,mailhog"
-
-echo "\n${BBlue}Initializing Laravel Sail\n${NC}"
-./vendor/bin/sail up -d
-
-echo "\n${BBlue}Remember to create the bash alias below\n${NC}"
-echo "${BRed}alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'${NC}"
