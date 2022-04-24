@@ -21,11 +21,7 @@ $rules = [
         'position_after_functions_and_oop_constructs' => 'next',
     ],
     'cast_spaces' => ['space' => 'none'],
-    // 'class_attributes_separation' => [
-    //     'elements' => ['method', 'property'],
-    // ],
     'no_unused_imports'          => true,
-    'class_keyword_remove'       => false,
     'combine_consecutive_issets' => false,
     'combine_consecutive_unsets' => false,
     'combine_nested_dirname'     => false,
