@@ -11,7 +11,7 @@ read ONLYHOOKS
 echo "\n${BRed}Are you planning to use the Laravel Sail? (Y for yes | anything else for NO)${NC}"
 read LARAVELSAIL
 
-if [ "$LARAVELSAIL" == 'Y']
+if [ "$LARAVELSAIL" == 'Y']; then
     echo "\n${BRed}Do you want to install the Laravel Sail? (Y for yes | anything else for NO)${NC}"
     read INSTALLSAIL
 
