@@ -11,7 +11,7 @@ read ONLYHOOKS
 echo "\n${BRed}Are you planning to use the Laravel Sail? (Y for yes | anything else for NO)${NC}"
 read LARAVELSAIL
 
-if [ "$LARAVELSAIL" == 'Y']; then
+if [ "$LARAVELSAIL" == "Y" ]; then
     echo "\n${BRed}Do you want to install the Laravel Sail? (Y for yes | anything else for NO)${NC}"
     read INSTALLSAIL
 
@@ -20,7 +20,7 @@ if [ "$LARAVELSAIL" == 'Y']; then
     fi
 fi
 
-if [ "$LARAVELSAIL" == 'Y' ]; then
+if [ "$LARAVELSAIL" == "Y" ]; then
     echo "\n${BBlue}Installing .git/hooks${NC}"
     sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run-sail)"
 else
@@ -28,8 +28,8 @@ else
     sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run)"
 fi
 
-if [ "$ONLYHOOKS" == 'Y']; then
-  exit 0;
+if [ "$ONLYHOOKS" == "Y" ]; then
+  exit 0
 fi
 
 echo "\n${BRed}Do you want to create the README template? (Y for yes | anything else for NO)${NC}"
