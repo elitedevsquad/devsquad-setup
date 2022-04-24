@@ -3,7 +3,7 @@ name: Deploy Production
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   testing:
@@ -24,8 +24,11 @@ jobs:
         ports:
           - 6379:6379
 
-    env:
-      DB_DATABASE: testing
+      mailhog:
+        image: mailhog/mailhog
+        ports:
+          - 1025:1025
+          - 8025:8025
 
     steps:
       - uses: actions/checkout@v2
@@ -55,30 +58,22 @@ jobs:
         run: ./vendor/bin/phpcs --standard=phpcs.xml
 
       - name: Check route integrity
-        run: php artisan route:list -c
+        run: php artisan route:list
 
       - name: PHP CS Fixer
         run: ./vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --verbose --stop-on-violation
 
       - name: Run Migrations
         run: php artisan migrate --force
-        env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         run: php artisan test --parallel --configuration phpunit-ci.xml
-        env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
 
       - name: Run seeds
         run: php artisan db:seed
-        env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
 
       - name: Run Migrations Rollback
         run: php artisan migrate:rollback --force
-        env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
 
   deploy:
     needs: testing
