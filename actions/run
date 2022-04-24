@@ -7,17 +7,17 @@ BRed='\033[1;33m'
 [ -d ./.github ] || mkdir ./.github
 [ -d ./.github/workflows ] || mkdir ./.github/workflows
 
-echo "\n${BRed}Is this project using Vapor? (Y for yes | anything else for NO)\n${NC}"
+echo "\n${BRed}Is this project using Vapor? (Y for yes | anything else for NO)${NC}"
 read VAPOR
 
 if [ "$VAPOR" == "Y" ]; then
-  echo "\n${BRed}Have this project a sandbox environment? (Y for yes | anything else for NO)\n${NC}"
+  echo "\n${BRed}Have this project a sandbox environment? (Y for yes | anything else for NO)${NC}"
   read SANDBOX
 
-  echo "\n${BRed}Have this project a staging environment? (Y for yes | anything else for NO)\n${NC}"
+  echo "\n${BRed}Have this project a staging environment? (Y for yes | anything else for NO)${NC}"
   read STAGING
 
-  echo "1. Install .github/workflows/test.yml"
+  echo "\n1. Install .github/workflows/test.yml"
   curl -s -o .github/workflows/test.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/test.yml"
 
   echo "2. Install .github/workflows/deployment-notifications.yml"
