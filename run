@@ -29,6 +29,7 @@ else
 fi
 
 if [ "$ONLYHOOKS" == "Y" ]; then
+  echo "\n${BBlue}All done! 😎${NC}"
   exit 0
 fi
 
