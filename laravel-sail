@@ -4,16 +4,31 @@
 NC='\033[0m'
 BRed='\033[1;33m'
 
+phpVersions=$(grep -o '"php": "[^"]*' composer.json | grep -o '[^"]*$' | sed 's/\^*\.*//g')
+IFS='|' read -ra PHPVERSION <<<"$phpVersions"
+max=${PHPVERSION[0]}
+for i in "${PHPVERSION[@]}"; do
+    if [ "$((i > max))" -ne 0 ]; then
+        max=$i
+    fi
+done
+phpVersion=$(echo $max | cut -c 1-2)
+
 echo "\n1. Install Laravel Sail\n"
-composer require laravel/sail --dev
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php81-composer:latest \
+    composer install --ignore-platform-reqs
 
-echo "\n${BRed}Do you want to use MySQL or MariaDB on this project? (1 for MySQL or 2 for MariaDB)${NC}"
-read DATABASE
-
-if [ "$DATABASE" == "1" ]; then
-    echo "\n2. Create docker-compose.yml file with MySQL and Redis\n"
-    php artisan sail:install --with=mysql,redis -q -n
-else
-    echo "\n2. Create docker-compose.yml file with MariaDB and Redis\n"
-    php artisan sail:install --with=mariadb,redis -q -n
-fi
+#echo "\n${BRed}Do you want to use MySQL or MariaDB on this project? (1 for MySQL or 2 for MariaDB)${NC}"
+#read DATABASE
+#
+#if [ "$DATABASE" == "1" ]; then
+#    echo "\n2. Create docker-compose.yml file with MySQL and Redis\n"
+#    php artisan sail:install --with=mysql,redis -q -n
+#else
+#    echo "\n2. Create docker-compose.yml file with MariaDB and Redis\n"
+#    php artisan sail:install --with=mariadb,redis -q -n
+#fi

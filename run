@@ -5,7 +5,42 @@ NC='\033[0m'
 BBlue='\033[1;34m'
 BRed='\033[1;33m'
 
-echo "\n${BRed}Do you want to create the Pull Request template? (Y for yes or N for no)${NC}"
+echo "\n${BRed}Do you want to only install the GitHub Hooks? (Y for yes | anything else for NO)${NC}"
+read ONLYHOOKS
+
+echo "\n${BRed}Are you planning to use the Laravel Sail? (Y for yes | anything else for NO)${NC}"
+read LARAVELSAIL
+
+if [ "$LARAVELSAIL" == 'Y']
+    echo "\n${BRed}Do you want to install the Laravel Sail? (Y for yes | anything else for NO)${NC}"
+    read INSTALLSAIL
+
+    if [ "$INSTALLSAIL" == "Y" ]; then
+        sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/laravel-sail)"
+    fi
+fi;
+
+if [ "$LARAVELSAIL" == 'Y' ]; then
+    echo "\n${BBlue}Installing .git/hooks${NC}"
+    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run-sail)"
+else
+    echo "\n${BBlue}Installing .git/hooks${NC}"
+    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run)"
+fi
+
+if [ "$ONLYHOOKS" == 'Y']; then
+  exit 0;
+fi
+
+echo "\n${BRed}Do you want to create the README template? (Y for yes | anything else for NO)${NC}"
+read READMETEMPLATE
+
+if [ "$READMETEMPLATE" == "Y" ]; then
+    echo "\n${BBlue}Installing README template${NC}"
+    curl -s -o README.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/README.md"
+fi
+
+echo "\n${BRed}Do you want to create the Pull Request template? (Y for yes | anything else for NO)${NC}"
 read PRTEMPLATE
 
 if [ "$PRTEMPLATE" == "Y" ]; then
@@ -13,31 +48,19 @@ if [ "$PRTEMPLATE" == "Y" ]; then
     curl -s -o .github/pull_request_template.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/pull_request_template.md"
 fi
 
-echo "\n${BRed}Do you want to install the PHP Verification Tools? (Y for yes or N for no)${NC}"
+echo "\n${BRed}Do you want to install the PHP Verification Tools? (Y for yes | anything else for NO)${NC}"
 read PHPPACKAGES
 
 if [ "$PHPPACKAGES" == "Y" ]; then
     echo "\n${BBlue}Installing necessary PHP packages${NC}"
-    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/vendor-packages)"
+    if [ "$LARAVELSAIL" == "Y" ]; then
+      sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/vendor-packages-sail)"
+    else
+      sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/vendor-packages)"
+    fi
 
     echo "\n${BBlue}Installing verification tools' settings files${NC}"
     sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/run)"
-fi
-
-echo "\n${BRed}Do you want to use Laravel Sail on this project? (Y for yes or N for no)${NC}"
-read SAIL
-
-if [ "$SAIL" == "Y" ]; then
-    # Laravel Sail
-    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/laravel-sail)"
-fi
-
-if [ "$SAIL" == 'Y' ]; then
-    echo "\n${BBlue}Installing .git/hooks${NC}"
-    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run-sail)"
-else
-    echo "\n${BBlue}Installing .git/hooks${NC}"
-    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run)"
 fi
 
 echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
