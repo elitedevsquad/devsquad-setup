@@ -26,3 +26,6 @@ if [ "$laravelVersion" == v8* ]; then
     echo "8. Install phpstan.neon"
     curl -s -o phpstan.neon "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/phpstan.neon"
 fi
+
+echo "\n${BBlue}Remember to add these lines at the .gitignore file\n${NC}"
+echo "${BRed}.php-cs-fixer.cache\n.env.testing${NC}"
