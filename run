@@ -29,7 +29,7 @@ else
 fi
 
 if [ "$ONLYHOOKS" == "Y" ]; then
-  echo "\n${BBlue}All done! 😎${NC}"
+  echo "\n${BBlue}All done! 😎\n${NC}"
   exit 0
 fi
 
@@ -74,4 +74,4 @@ if [ ! -d './workspace' ]; then
 !.gitignore" >./workspace/.gitignore
 fi
 
-echo "\n${BBlue}All done! 😎${NC}"
+echo "\n${BBlue}All done! 😎\n${NC}"
