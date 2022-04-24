@@ -1,4 +1,10 @@
 #!/bin/sh
+
+# Colors
+NC='\033[0m'
+BBlue='\033[1;34m'
+BRed='\033[1;33m'
+
 laravelVersion=$(composer show 'laravel/framework' | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1)
 
 echo "1. Install .php-cs-fixer.php"
