@@ -20,6 +20,7 @@ _Packages that were installed and need some attention during the environment set
 
 * Laravel Cashier
 * Laravel Horizon
+* Stripe
 * Etc...
 
 ### Environment Setup
