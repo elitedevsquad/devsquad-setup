@@ -13,13 +13,16 @@ curl -s -o phpmd.xml "https://raw.githubusercontent.com/elitedevsquad/devsquad-s
 echo "4. Install phpunit.xml"
 curl -s -o phpunit.xml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/phpunit.xml"
 
-echo "5. Install phpunit-ci.xml"
+echo "5. Install .env.testing"
+curl -s -o .env.testing "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/.env.testing"
+
+echo "6. Install phpunit-ci.xml"
 curl -s -o phpunit-ci.xml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/phpunit-ci.xml"
 
-echo "6. Install .env.ci"
+echo "7. Install .env.ci"
 curl -s -o .env.ci "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/.env.ci"
 
 if [ "$laravelVersion" == v8* ]; then
-    echo "7. Install phpstan.neon"
+    echo "8. Install phpstan.neon"
     curl -s -o phpstan.neon "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/phpstan.neon"
 fi
