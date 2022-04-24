@@ -55,7 +55,7 @@ if [ "$PRTEMPLATE" == "Y" ]; then
     curl -s -o .github/pull_request_template.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/pull_request_template.md"
 fi
 
-echo "\n${BRed}Do you want to install the PHP Verification Tools? (Y for yes | anything else for NO)${NC}"
+echo "\n${BRed}Do you want to install the PHP verification tools? (Y for yes | anything else for NO)${NC}"
 read PHPPACKAGES
 
 if [ "$PHPPACKAGES" == "Y" ]; then
@@ -66,7 +66,7 @@ if [ "$PHPPACKAGES" == "Y" ]; then
       sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/vendor-packages)"
     fi
 
-    echo "\n${BBlue}Installing verification tools' settings files${NC}"
+    echo "\n${BBlue}Installing PHP verification tools settings files${NC}"
     sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/run)"
 fi
 
