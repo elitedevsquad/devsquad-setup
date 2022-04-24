@@ -44,6 +44,6 @@ if [ "$VAPOR" == "Y" ]; then
   echo "${productionStep}. Install .github/workflows/deploy-production.yml"
   curl -s -o .github/workflows/deploy-production.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/deploy-production.yml"
 else
-  echo "1. Install .github/workflows/test.yml"
+  echo "\n1. Install .github/workflows/test.yml"
   curl -s -o .github/workflows/test.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/test.yml"
 fi
