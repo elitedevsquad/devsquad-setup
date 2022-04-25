@@ -8,20 +8,19 @@ BRed='\033[1;33m'
 function uppercase()
 {
 	local TEXT=$1
-
 	echo `echo $TEXT | tr '[a-z]' '[A-Z]'`
 }
 
-echo "\n${BRed}Do you want to only install the GitHub Hooks? (Y for yes | anything else for NO)${NC}"
+echo "\n${BRed}Do you want to only install the GitHub Hooks? (Y/y for yes or anything else for no)${NC}"
 read ONLYHOOKS
 ONLYHOOKS=$(uppercase $ONLYHOOKS)
 
-echo "\n${BRed}Are you planning to use the Laravel Sail? (Y for yes | anything else for NO)${NC}"
+echo "\n${BRed}Are you planning to use the Laravel Sail? (Y/y for yes or anything else for no)${NC}"
 read LARAVELSAIL
 LARAVELSAIL=$(uppercase $LARAVELSAIL)
 
 if [ "$LARAVELSAIL" == "Y" ]; then
-    echo "\n${BRed}Do you want to install the Laravel Sail? (Y for yes | anything else for NO)${NC}"
+    echo "\n${BRed}Do you want to install the Laravel Sail? (Y/y for yes or anything else for no)${NC}"
     read INSTALLSAIL
 	INSTALLSAIL=$(uppercase $INSTALLSAIL)
 
@@ -49,7 +48,7 @@ if [ "$ONLYHOOKS" == "Y" ]; then
   exit 0
 fi
 
-echo "\n${BRed}Do you want to create the README template? (Y for yes | anything else for NO)${NC}"
+echo "\n${BRed}Do you want to create the README template? (Y/y for yes or anything else for no)${NC}"
 read READMETEMPLATE
 READMETEMPLATE=$(uppercase $READMETEMPLATE)
 
@@ -58,7 +57,7 @@ if [ "$READMETEMPLATE" == "Y" ]; then
     curl -s -o README.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/README.md"
 fi
 
-echo "\n${BRed}Do you want to create the Pull Request template? (Y for yes | anything else for NO)${NC}"
+echo "\n${BRed}Do you want to create the Pull Request template? (Y/y for yes or anything else for no)${NC}"
 read PRTEMPLATE
 PRTEMPLATE=$(uppercase $PRTEMPLATE)
 
@@ -67,7 +66,7 @@ if [ "$PRTEMPLATE" == "Y" ]; then
     curl -s -o .github/pull_request_template.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/pull_request_template.md"
 fi
 
-echo "\n${BRed}Do you want to install the PHP verification tools? (Y for yes | anything else for NO)${NC}"
+echo "\n${BRed}Do you want to install the PHP verification tools? (Y/y for yes or anything else for no)${NC}"
 read PHPPACKAGES
 PHPPACKAGES=$(uppercase $PHPPACKAGES)
 
