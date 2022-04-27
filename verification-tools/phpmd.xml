@@ -19,6 +19,9 @@
     <rule ref="rulesets/codesize.xml/TooManyMethods"/>
     <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity"/>
     <rule ref="rulesets/controversial.xml"/>
+    <rule ref="rulesets/controversial.xml/CamelCaseMethodName">
+        <exclude-pattern>tests</exclude-pattern>
+    </rule>
     <rule ref="rulesets/design.xml/ExitExpression"/>
     <rule ref="rulesets/design.xml/EvalExpression"/>
     <rule ref="rulesets/design.xml/GotoStatement"/>
@@ -43,4 +46,8 @@
     <rule ref="rulesets/unusedcode.xml/UnusedPrivateField"/>
     <rule ref="rulesets/unusedcode.xml/UnusedLocalVariable"/>
     <rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod"/>
+
+    <!--  Remove the following lines¥ when the PHPMD add the support to enum classes  -->
+    <exclude-pattern>app/Enum</exclude-pattern>
+    <exclude-pattern>app\Enum</exclude-pattern>
 </ruleset>
