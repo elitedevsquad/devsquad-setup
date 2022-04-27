@@ -31,6 +31,9 @@ jobs:
           - 1025:1025
           - 8025:8025
 
+    env:
+      DB_PORT: 3306
+
     steps:
       - uses: actions/checkout@v2
 
