@@ -20,7 +20,7 @@ jobs:
               MYSQL_ALLOW_EMPTY_PASSWORD: yes
               MYSQL_DATABASE: ci
           ports:
-              - 3306
+              - 3306:3306
           options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
       redis:
@@ -33,9 +33,6 @@ jobs:
         ports:
           - 1025:1025
           - 8025:8025
-
-    env:
-      DB_PORT: 3306
 
     steps:
       - uses: actions/checkout@v2
