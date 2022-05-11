@@ -15,7 +15,7 @@ echo "\n1. Update composer.lock file\n"
 composer update
 
 echo "\n2. Install PHP Unit\n"
-if [ "$phpVersion" -le "7" ]; then
+if [ "$phpVersion" -le 7 ]; then
     composer require phpunit/phpunit "^8.5.8|^9.3.3" --dev
 else
     composer require phpunit/phpunit "^9.3.3" --dev
@@ -28,13 +28,11 @@ echo "\n4. Install PHP Code Sniffer\n"
 composer require squizlabs/php_codesniffer "^3.6" --dev
 
 echo "\n5. Install PHP CS Fixer\n"
-if [ "$phpVersion" -le "7" ]; then
+if [ "$phpVersion" -le 7 ]; then
     composer require friendsofphp/php-cs-fixer "^2.0" --dev
 else
     composer require friendsofphp/php-cs-fixer "^3.0" --dev
 fi
-
-echo $laravelVersion
 
 if [ "$laravelVersion" == v8* ]; then
     echo "\n6. Install Larastan\n"
