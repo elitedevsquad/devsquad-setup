@@ -61,14 +61,20 @@ php artisan key:generate
 php artisan migrate --seed
 ```
 
-#### 6. Install the JavaScript dependencies
+#### 6. Link the storage directory
+
+```shell
+php artisan storage:link
+```
+
+#### 7. Install the JavaScript dependencies
 
 ```shell
 npm install
 npm run watch
 ```
 
-#### 7. Run the DevSquad Setup command
+#### 8. Run the DevSquad Setup command
 
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)"
