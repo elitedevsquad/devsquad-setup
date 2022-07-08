@@ -7,6 +7,11 @@ Run the command below and everything will be done automagically:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)"
 ```
 
+_If you are using a linux based environment:_
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)"
+```
+
 After running the command, please add these scripts in your composer.json file:
 
 ```json
