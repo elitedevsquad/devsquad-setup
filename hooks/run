@@ -7,14 +7,14 @@ npm pkg set scripts.prepare "husky install"
 # yarn only
 npm pkg set scripts.postinstall "husky install"
 
-echo "1. Install .husk/pre-rebase"
-curl -s -o .husk/pre-rebase "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/pre-rebase"
-chmod +x .husk/pre-rebase
+echo "1. Install .husky/pre-rebase"
+curl -s -o .husky/pre-rebase "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/pre-rebase"
+chmod +x .husky/pre-rebase
 
-echo "2. Install .husk/pre-push"
-curl -s -o .husk/pre-push "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/pre-push"
-chmod +x .husk/pre-push
+echo "2. Install .husky/pre-push"
+curl -s -o .husky/pre-push "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/pre-push"
+chmod +x .husky/pre-push
 
-echo "3. Install .husk/commit-msg"
-curl -s -o .husk/commit-msg "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/commit-msg"
-chmod +x .husk/commit-msg
+echo "3. Install .husky/commit-msg"
+curl -s -o .husky/commit-msg "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/commit-msg"
+chmod +x .husky/commit-msg
