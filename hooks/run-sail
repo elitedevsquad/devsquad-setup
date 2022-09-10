@@ -1,5 +1,10 @@
 #!/bin/sh
 
+npm install husky --save-dev
+npx husky install
+npm pkg set scripts.prepare "husky install"
+npm pkg set scripts.postinstall "husky install" # yarn 2 only
+
 echo "1. Install .git/hooks/pre-rebase"
 curl -s -o .git/hooks/pre-rebase "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/pre-rebase"
 chmod +x .git/hooks/pre-rebase
