@@ -1,0 +1,41 @@
+pipelines:
+  default:
+    - step:
+        name: Build backend
+        caches:
+          - node
+          - composer
+        image: php:8.1
+        script:
+          - curl -sL https://deb.nodesource.com/setup_16.x |  bash -
+          - apt-get update && apt-get install -qy git zip unzip curl default-mysql-client nodejs
+          - pecl install redis
+          - docker-php-ext-enable redis
+          - docker-php-ext-install pdo_mysql
+          - docker-php-ext-install exif
+          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+          - composer --no-ansi --no-interaction --no-progress --no-cache install
+          - ln -f -s .env.pipeline .env
+          - composer analyse
+          - composer lint
+          - php artisan migrate --force
+          - php artisan db:seed
+          - php artisan route:list
+          - php artisan test --parallel --stop-on-failure
+          - php artisan migrate:rollback
+          - npm install
+          - npm run build
+        services:
+          - mysql
+          - redis
+
+definitions:
+  services:
+    mysql:
+      image: mysql:8.0.28
+      environment:
+        MYSQL_DATABASE: 'testing'
+        MYSQL_ROOT_PASSWORD: 'password'
+
+    redis:
+      image: redis

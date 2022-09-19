@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Colors
+NC='\033[0m'
+BRed='\033[1;33m'
+
+echo "\n1. Install bitbucket-pipelines.yml"
+curl -s -o bitbucket-pipelines.yml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/repo-automation/bitbucket/bitbucket-pipelines.yml"

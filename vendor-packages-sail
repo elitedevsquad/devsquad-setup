@@ -27,12 +27,8 @@ echo "\n3. Install PHP Mess Detector\n"
 echo "\n4. Install PHP Code Sniffer\n"
 ./vendor/bin/sail composer require squizlabs/php_codesniffer "^3.6" --dev
 
-echo "\n5. Install PHP CS Fixer\n"
-if [ "$phpVersion" -le "7" ]; then
-    ./vendor/bin/sail composer require friendsofphp/php-cs-fixer "^2.0" --dev
-else
-    ./vendor/bin/sail composer require friendsofphp/php-cs-fixer "^3.0" --dev
-fi
+echo "\n5. Install Laravel Pint\n"
+./vendor/bin/sail composer require laravel/pint --dev
 
 echo $laravelVersion
 

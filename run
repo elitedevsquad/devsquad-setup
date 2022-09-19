@@ -81,8 +81,13 @@ if [ "$PHPPACKAGES" == "Y" ]; then
     sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/run)"
 fi
 
-echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
-sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/actions/run)"
+if git remote -v | grep -q 'github'; then
+    echo "\n${BBlue}Installing necessary GitHub Actions${NC}"
+    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/repo-automation/github/run)"
+elif git remote -v | grep -q 'bitbucket'; then
+    echo "\n${BBlue}Installing necessary Bitbucket Pipelines${NC}"
+    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/repo-automation/bitbucket/run)"
+fi
 
 echo "\n${BBlue}Installing workspace directory${NC}"
 if [ ! -d './workspace' ]; then

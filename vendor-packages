@@ -27,12 +27,8 @@ composer require phpmd/phpmd "^2.9" --dev
 echo "\n4. Install PHP Code Sniffer\n"
 composer require squizlabs/php_codesniffer "^3.6" --dev
 
-echo "\n5. Install PHP CS Fixer\n"
-if [ "$phpVersion" -le 7 ]; then
-    composer require friendsofphp/php-cs-fixer "^2.0" --dev
-else
-    composer require friendsofphp/php-cs-fixer "^3.0" --dev
-fi
+echo "\n5. Install Laravel Pint\n"
+composer require laravel/pint --dev
 
 if [ "$laravelVersion" == v8* ]; then
     echo "\n6. Install Larastan\n"

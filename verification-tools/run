@@ -7,8 +7,8 @@ BRed='\033[1;33m'
 
 laravelVersion=$(composer show 'laravel/framework' | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1)
 
-echo "1. Install .php-cs-fixer.php"
-curl -s -o .php-cs-fixer.php "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/.php-cs-fixer.php"
+echo "1. Install pint.json"
+curl -s -o pint.json "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/pint.json"
 
 echo "2. Install phpcs.xml"
 curl -s -o phpcs.xml "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/verification-tools/phpcs.xml"
