@@ -34,7 +34,7 @@ fi
 # ----------------------------------------------------------------------------------------
 # 3. PHP Code Fixer
 echo "${BBlue}3. PHP Code Fixer${NC}"
-./vendor/bin/sail php ./vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --verbose --stop-on-violation
+./vendor/bin/sail php ./vendor/bin/pint --test
 
 STATUS_CODE=$?
 if [ $STATUS_CODE -ne 0 ]; then

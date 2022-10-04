@@ -18,10 +18,10 @@ After running the command, please add these scripts in your composer.json file:
 {
   "scripts": {
     "fix": [
-      "./vendor/bin/php-cs-fixer fix --using-cache=no --verbose"
+      "./vendor/bin/pint"
     ],
     "verify": [
-      "./vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --verbose --stop-on-violation",
+      "./vendor/bin/pint --test",
       "./vendor/bin/phpcs --standard=phpcs.xml",
       "./vendor/bin/phpmd app text ./phpmd.xml",
       "./vendor/bin/phpunit"

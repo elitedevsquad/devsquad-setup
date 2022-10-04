@@ -34,4 +34,4 @@ if [ "$laravelVersion" == v8* ]; then
 fi
 
 echo "\n${BBlue}Remember to add these lines at the .gitignore file\n${NC}"
-echo "${BRed}.php-cs-fixer.cache\n.env.testing${NC}"
+echo "${BRed}.env.testing${NC}"

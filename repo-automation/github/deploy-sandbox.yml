@@ -58,7 +58,7 @@ jobs:
         run: php artisan route:list
 
       - name: PHP CS Fixer
-        run: ./vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --verbose --stop-on-violation
+        run: ./vendor/bin/pint --test
 
       - name: Run Migrations
         run: php artisan migrate --force
