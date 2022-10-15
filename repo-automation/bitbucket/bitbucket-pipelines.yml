@@ -31,7 +31,7 @@ pipelines:
           - redis
 
 #  branches:
-#    master:
+#    main:
 #      - step:
 #          name: Merge in customer repository
 #          script:
