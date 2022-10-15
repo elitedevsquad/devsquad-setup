@@ -56,13 +56,15 @@ if [ "$READMETEMPLATE" == "Y" ]; then
     curl -s -o README.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/README.md"
 fi
 
-echo "\n${BRed}Do you want to create the Pull Request template? (Y/y for yes or anything else for no)${NC}"
-read PRTEMPLATE
-PRTEMPLATE=$(uppercase $PRTEMPLATE)
+if git remote -v | grep -q 'github'; then
+  echo "\n${BRed}Do you want to create the Pull Request template? (Y/y for yes or anything else for no)${NC}"
+  read PRTEMPLATE
+  PRTEMPLATE=$(uppercase $PRTEMPLATE)
 
-if [ "$PRTEMPLATE" == "Y" ]; then
-    echo "\n${BBlue}Installing .github pull request template${NC}"
-    curl -s -o .github/pull_request_template.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/pull_request_template.md"
+  if [ "$PRTEMPLATE" == "Y" ]; then
+      echo "\n${BBlue}Installing .github pull request template${NC}"
+      curl -s -o .github/pull_request_template.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/pull_request_template.md"
+  fi
 fi
 
 echo "\n${BRed}Do you want to install the PHP verification tools? (Y/y for yes or anything else for no)${NC}"

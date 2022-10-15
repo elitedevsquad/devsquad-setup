@@ -3,11 +3,13 @@
 ## Installation
 
 Run the command below and everything will be done automagically:
+
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)"
 ```
 
 _If you are using a linux based environment:_
+
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)"
 ```
@@ -16,21 +18,32 @@ After running the command, please add these scripts in your composer.json file:
 
 ```json
 {
-  "scripts": {
-    "fix": [
-      "./vendor/bin/pint"
-    ],
-    "verify": [
-      "./vendor/bin/pint --test",
-      "./vendor/bin/phpcs --standard=phpcs.xml",
-      "./vendor/bin/phpmd app text ./phpmd.xml",
-      "./vendor/bin/phpunit"
-    ]
-  }
+    "scripts": {
+        "fix": [
+            "./vendor/bin/pint"
+        ],
+        "verify": [
+            "./vendor/bin/pint --test",
+            "./vendor/bin/phpcs --standard=phpcs.xml",
+            "./vendor/bin/phpmd app text ./phpmd.xml",
+            "./vendor/bin/phpunit"
+        ]
+    }
 }
 ```
 
+### If this is a bitbucket repository
 
+The `bitbucket-pipelines.yml` file will be added to the root directory of your project, this file contains the
+configuration to test the project on every pull request, also it has a configuration to push the code of the
+branches `main`, `develop`, and `release` to the customer's repository on every push to those branches.
+
+The configuration to push the code to the customer's repository is commented, you need to uncomment it and replace the keys:
+`{{CUSTOMER_REPOSITORY_MANAGER}}` with `bitbucket` or `github`.
+`{{CUSTOMER_ORGANIZATION}}` with the customer's organization name.
+`{{CUSTOMER_REPOSITORY}}` with the customer's repository name.
+
+**ATTENTION: The instructions below should be followed only once you have the necessary information to uncomment the lines and replace the keys.**
 
 ### If this project uses Vapor
 
@@ -44,7 +57,8 @@ webhook, and copy the Webhook URL that was generated, as it will be used later.
 #### Create a new Vapor API Token
 
 Access the Vapor's account for this project and get an API Token. You can access this
-link https://vapor.laravel.com/app/account/general and click on the API tab, so you can create a new one. Please, copy it!
+link https://vapor.laravel.com/app/account/general and click on the API tab, so you can create a new one. Please, copy
+it!
 
 #### Create GitHub Secrets
 

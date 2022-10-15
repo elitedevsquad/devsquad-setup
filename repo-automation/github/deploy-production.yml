@@ -57,20 +57,20 @@ jobs:
       - name: PHP Code Sniffer
         run: ./vendor/bin/phpcs --standard=phpcs.xml
 
-      - name: Check route integrity
-        run: php artisan route:list
-
       - name: PHP CS Fixer
         run: ./vendor/bin/pint --test
 
       - name: Run Migrations
         run: php artisan migrate --force
 
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
-        run: php artisan test --parallel --configuration phpunit-ci.xml
-
       - name: Run seeds
         run: php artisan db:seed
+
+      - name: Check route integrity
+        run: php artisan route:list
+
+      - name: Execute tests (Unit and Feature tests) via PHPUnit
+        run: php artisan test --parallel --configuration phpunit-ci.xml
 
       - name: Run Migrations Rollback
         run: php artisan migrate:rollback --force

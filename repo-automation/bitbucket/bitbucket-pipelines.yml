@@ -7,27 +7,53 @@ pipelines:
           - composer
         image: php:8.1
         script:
-          - curl -sL https://deb.nodesource.com/setup_16.x |  bash -
+          - curl -sL https://deb.nodesource.com/setup_lts.x |  bash -
           - apt-get update && apt-get install -qy git zip unzip curl default-mysql-client nodejs
           - pecl install redis
           - docker-php-ext-enable redis
           - docker-php-ext-install pdo_mysql
           - docker-php-ext-install exif
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+          - php -r "file_exists('.env') || copy('.env.ci', '.env');"
+          - npm install
+          - npm run build
           - composer --no-ansi --no-interaction --no-progress --no-cache install
-          - ln -f -s .env.pipeline .env
-          - composer analyse
-          - composer lint
+          - ./vendor/bin/phpmd app text ./phpmd.xml
+          - ./vendor/bin/phpcs --standard=phpcs.xml
+          - ./vendor/bin/pint --test
           - php artisan migrate --force
           - php artisan db:seed
           - php artisan route:list
-          - php artisan test --parallel --stop-on-failure
+          - php artisan test --parallel --stop-on-failure --configuration phpunit-ci.xml
           - php artisan migrate:rollback
-          - npm install
-          - npm run build
         services:
           - mysql
           - redis
+
+#  branches:
+#    master:
+#      - step:
+#          name: Merge in customer repository
+#          script:
+#            - git remote add {{CUSTOMER_REPOSITORY_MANAGER}} "git@{{CUSTOMER_REPOSITORY_MANAGER}}.com:{{CUSTOMER_ORGANIZATION}}/{{CUSTOMER_REPOSITORY}}.git"
+#            - git fetch --depth=214748364
+#            - git push {{CUSTOMER_REPOSITORY_MANAGER}} $BITBUCKET_BRANCH
+#
+#    release:
+#      - step:
+#          name: Merge in customer repository
+#          script:
+#            - git remote add {{CUSTOMER_REPOSITORY_MANAGER}} "git@{{CUSTOMER_REPOSITORY_MANAGER}}.com:{{CUSTOMER_ORGANIZATION}}/{{CUSTOMER_REPOSITORY}}.git"
+#            - git fetch --depth=214748364
+#            - git push {{CUSTOMER_REPOSITORY_MANAGER}} $BITBUCKET_BRANCH
+#
+#    develop:
+#      - step:
+#          name: Merge in customer repository
+#          script:
+#            - git remote add {{CUSTOMER_REPOSITORY_MANAGER}} "git@{{CUSTOMER_REPOSITORY_MANAGER}}.com:{{CUSTOMER_ORGANIZATION}}/{{CUSTOMER_REPOSITORY}}.git"
+#            - git fetch --depth=214748364
+#            - git push {{CUSTOMER_REPOSITORY_MANAGER}} $BITBUCKET_BRANCH
 
 definitions:
   services:
