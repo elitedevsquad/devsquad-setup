@@ -32,7 +32,7 @@ After running the command, please add these scripts in your composer.json file:
 }
 ```
 
-### If this is a bitbucket repository
+### If this is a Bitbucket repository
 
 The `bitbucket-pipelines.yml` file will be added to the root directory of your project, this file contains the
 configuration to test the project on every pull request, also it has a configuration to push the code of the
