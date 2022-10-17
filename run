@@ -10,10 +10,6 @@ function uppercase() {
     echo $(echo $TEXT | tr '[a-z]' '[A-Z]')
 }
 
-echo "\n${BRed}Do you want to only install the Git Hooks? (Y/y for yes or anything else for no)${NC}"
-read ONLYHOOKS
-ONLYHOOKS=$(uppercase $ONLYHOOKS)
-
 echo "\n${BRed}Are you planning to use the Laravel Sail? (Y/y for yes or anything else for no)${NC}"
 read LARAVELSAIL
 LARAVELSAIL=$(uppercase $LARAVELSAIL)
@@ -40,11 +36,6 @@ if [ "$LARAVELSAIL" == "Y" ]; then
 else
     echo "\n${BBlue}Installing Husky Hooks on the \".husky\" folder\n${NC}"
     sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run)"
-fi
-
-if [ "$ONLYHOOKS" == "Y" ]; then
-    echo "\n${BBlue}All done! 😎\n${NC}"
-    exit 0
 fi
 
 echo "\n${BRed}Do you want to create the README template? (Y/y for yes or anything else for no)${NC}"
