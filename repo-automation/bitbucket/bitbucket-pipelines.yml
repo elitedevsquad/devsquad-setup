@@ -23,7 +23,6 @@ pipelines:
           - ./vendor/bin/pint --test
           - php artisan migrate --force
           - php artisan db:seed
-          - php artisan route:list
           - php artisan test --parallel --stop-on-failure --configuration phpunit-ci.xml
           - php artisan migrate:rollback
         services:

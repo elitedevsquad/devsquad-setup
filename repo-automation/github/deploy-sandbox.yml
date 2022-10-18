@@ -54,10 +54,7 @@ jobs:
       - name: PHP Code Sniffer
         run: ./vendor/bin/phpcs --standard=phpcs.xml
 
-      - name: Check route integrity
-        run: php artisan route:list
-
-      - name: PHP CS Fixer
+      - name: Laravel Pint
         run: ./vendor/bin/pint --test
 
       - name: Run Migrations
