@@ -24,6 +24,10 @@
     <php>
         <server name="APP_ENV" value="testing"/>
         <server name="APP_KEY" value="base64:wQFAmJrx3nLiCEc8Q6NKpfqhr3N7FFOZ9fqWa2Yvaj8="/>
+        <server name="DB_HOST" value="127.0.0.1"/>
+        <server name="DB_PORT" value="3306"/>
+        <server name="DB_DATABASE" value="testing"/>
+        <server name="DB_PASSWORD" value="password"/>
         <server name="BCRYPT_ROUNDS" value="4"/>
     </php>
 </phpunit>
