@@ -32,13 +32,13 @@ if [ $STATUS_CODE -ne 0 ]; then
 fi
 
 # ----------------------------------------------------------------------------------------
-# 3. PHP Code Fixer
-echo "${BBlue}3. PHP Code Fixer${NC}"
+# 3. Laravel Pint
+echo "${BBlue}3. Laravel Pint${NC}"
 ./vendor/bin/sail php ./vendor/bin/pint --test
 
 STATUS_CODE=$?
 if [ $STATUS_CODE -ne 0 ]; then
-    echo "${BRed}3.... php code fixer${NC}"
+    echo "${BRed}3.... laravel pint${NC}"
     exit 1
 fi
 
