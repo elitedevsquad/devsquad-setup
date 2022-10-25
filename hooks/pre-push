@@ -5,6 +5,7 @@ BBlue='\033[1;34m'
 BRed='\033[1;31m'
 
 laravelVersion=$(composer show 'laravel/framework' | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1)
+sailPreference=$(cat .env | grep SAIL_PRE_PUSH_PREFERENCE | cut -d '=' -f2 | tr '[:upper:]' '[:lower:]')
 
 NAME=$(git branch | grep '*' | sed 's/* //')
 echo "Running pre-push hook on: ${BBlue}" $NAME "${NC}"
@@ -12,7 +13,11 @@ echo "Running pre-push hook on: ${BBlue}" $NAME "${NC}"
 # ----------------------------------------------------------------------------------------
 # 1. PHP Mess Detector
 echo "${BBlue}1. PHP Mess Detector${NC}"
-./vendor/bin/phpmd app text ./phpmd.xml
+if [ "$sailPreference" = true ]; then
+  ./vendor/bin/sail php ./vendor/bin/phpmd app text ./phpmd.xml
+else
+  ./vendor/bin/phpmd app text ./phpmd.xml
+fi
 
 STATUS_CODE=$?
 if [ $STATUS_CODE -ne 0 ]; then
@@ -23,7 +28,11 @@ fi
 # ----------------------------------------------------------------------------------------
 # 2. PHP Code Sniffer
 echo "${BBlue}2. PHP Code Sniffer${NC}"
-./vendor/bin/phpcs --standard=phpcs.xml
+if [ "$sailPreference" = true ]; then
+  ./vendor/bin/sail php ./vendor/bin/phpcs --standard=phpcs.xml
+else
+  ./vendor/bin/phpcs --standard=phpcs.xml
+fi
 
 STATUS_CODE=$?
 if [ $STATUS_CODE -ne 0 ]; then
@@ -34,7 +43,11 @@ fi
 # ----------------------------------------------------------------------------------------
 # 3. Laravel Pint
 echo "${BBlue}3. Laravel Pint${NC}"
-./vendor/bin/pint --test
+if [ "$sailPreference" = true ]; then
+  ./vendor/bin/sail php ./vendor/bin/pint --test
+else
+  ./vendor/bin/pint --test
+fi
 
 STATUS_CODE=$?
 if [ $STATUS_CODE -ne 0 ]; then
@@ -46,7 +59,11 @@ if [ "$laravelVersion" == v8* ]; then
     # ----------------------------------------------------------------------------------------
     # 4. Larastan
     echo "${BBlue}4. Larastan${NC}"
-    ./vendor/bin/phpstan analyse
+    if [ "$sailPreference" = true ]; then
+        ./vendor/bin/sail php ./vendor/bin/phpstan analyse
+    else
+        ./vendor/bin/phpstan analyse
+    fi
 
     STATUS_CODE=$?
     if [ $STATUS_CODE -ne 0 ]; then
@@ -57,7 +74,11 @@ if [ "$laravelVersion" == v8* ]; then
     # ----------------------------------------------------------------------------------------
     # 5. PHP Unit Tests
     echo "${BBlue}5. Running Tests${NC}"
-    php artisan test --parallel
+    if [ "$sailPreference" = true ]; then
+        ./vendor/bin/sail php artisan test --parallel
+    else
+        php artisan test --parallel
+    fi
 
     STATUS_CODE=$?
     if [ $STATUS_CODE -ne 0 ]; then
@@ -68,7 +89,11 @@ else
     # ----------------------------------------------------------------------------------------
     # 4. PHP Unit Tests
     echo "${BBlue}4. Running Tests${NC}"
-    php artisan test --parallel
+    if [ "$sailPreference" = true ]; then
+        ./vendor/bin/sail php artisan test --parallel
+    else
+        php artisan test --parallel
+    fi
 
     STATUS_CODE=$?
     if [ $STATUS_CODE -ne 0 ]; then
