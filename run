@@ -84,9 +84,4 @@ if [ ! -d './workspace' ]; then
 !.gitignore" >./workspace/.gitignore
 fi
 
-echo '\nSAIL_ENABLED=false' &>> '.env.example'
-echo '\nSAIL_ENABLED=false' &>> '.env'
-
-echo "\n${BBlue}ATTENTION: If you are using Laravel Sail, change the SAIL_ENABLED variable in the end of the .env to true\n${NC}"
-
 echo "\n${BBlue}All done! 😎\n${NC}"
