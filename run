@@ -43,14 +43,14 @@ if [ "$READMETEMPLATE" == "Y" ]; then
 fi
 
 if git remote -v | grep -q 'github'; then
-  echo "\n${BRed}Do you want to create the Pull Request template? (Y/y for yes or anything else for no)${NC}"
-  read PRTEMPLATE
-  PRTEMPLATE=$(uppercase $PRTEMPLATE)
+    echo "\n${BRed}Do you want to create the Pull Request template? (Y/y for yes or anything else for no)${NC}"
+    read PRTEMPLATE
+    PRTEMPLATE=$(uppercase $PRTEMPLATE)
 
-  if [ "$PRTEMPLATE" == "Y" ]; then
-      echo "\n${BBlue}Installing .github pull request template${NC}"
-      curl -s -o .github/pull_request_template.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/pull_request_template.md"
-  fi
+    if [ "$PRTEMPLATE" == "Y" ]; then
+        echo "\n${BBlue}Installing .github pull request template${NC}"
+        curl -s -o .github/pull_request_template.md "https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/templates/pull_request_template.md"
+    fi
 fi
 
 echo "\n${BRed}Do you want to install the PHP verification tools? (Y/y for yes or anything else for no)${NC}"
@@ -84,8 +84,8 @@ if [ ! -d './workspace' ]; then
 !.gitignore" >./workspace/.gitignore
 fi
 
-sed -i 'SAIL_ENABLED=false' .env
-sed -i 'SAIL_ENABLED=false' .env.example
+echo '\nSAIL_ENABLED=false' &>>'.env.example'
+echo '\nSAIL_ENABLED=false' &>>'.env'
 
 echo "\n${BBlue}ATTENTION: If you are using Laravel Sail, change the SAIL_ENABLED variable in the end of the .env to true\n${NC}"
 
