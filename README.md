@@ -32,6 +32,12 @@ After running the command, please add these scripts in your composer.json file:
 }
 ```
 
+Also, add this variable to the .env.example file and to your .env file:
+```env
+SAIL_ENABLED=false
+```
+
+
 ### If this is a Bitbucket repository
 
 The `bitbucket-pipelines.yml` file will be added to the root directory of your project, this file contains the

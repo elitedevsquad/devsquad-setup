@@ -30,13 +30,8 @@ if [ "$LARAVELSAIL" == "Y" ]; then
     echo "${BRed}alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'${NC}"
 fi
 
-if [ "$LARAVELSAIL" == "Y" ]; then
-    echo "\n${BBlue}Installing Husky Hooks on the \".husky\" folder\n${NC}"
-    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run-sail)"
-else
-    echo "\n${BBlue}Installing Husky Hooks on the \".husky\" folder\n${NC}"
-    sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run)"
-fi
+echo "\n${BBlue}Installing Husky Hooks on the \".husky\" folder\n${NC}"
+sh -c "$(curl -fsSl https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/hooks/run)"
 
 echo "\n${BRed}Do you want to create the README template? (Y/y for yes or anything else for no)${NC}"
 read READMETEMPLATE

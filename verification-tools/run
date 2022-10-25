@@ -35,3 +35,8 @@ fi
 
 echo "\n${BBlue}Remember to add these lines at the .gitignore file\n${NC}"
 echo "${BRed}.env.testing${NC}"
+
+sed -i 'SAIL_ENABLED=false' .env
+sed -i 'SAIL_ENABLED=false' .env.example
+
+echo "\n${BBlue}Also, if you are using Laravel Sail, change the SAIL_ENABLED variable in the end of the .env to true\n${NC}"
