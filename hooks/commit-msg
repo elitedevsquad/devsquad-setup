@@ -10,6 +10,15 @@ NC='\033[0m'
 BBlue='\033[1;34m'
 BRed='\033[1;31m'
 
+# Find current user email
+USER_EMAIL=$(git config user.email)
+
+# Verify if the user email is set to a devsquad email
+if [[ "$USER_EMAIL" != *"devsquad.com" ]]; then
+    echo -e "${BRed}You are not using a DevSquad email as your user.email... ${NC}"
+    exit 1
+fi
+
 # Find current branch name
 BRANCH_NAME=$(git symbolic-ref --short HEAD)
 
@@ -20,7 +29,7 @@ ISSUE_ID=$(echo "$BRANCH_NAME" | grep -o -E "$REGEX_ISSUE_ID")
 COMMIT_MESSAGE=$(cat "$1")
 
 if [ -z "$ISSUE_ID" ]; then
-    echo -e "${BRed}Branch doesn't have Jira task code on itq... ${NC}"
+    echo -e "${BRed}Branch doesn't have Jira task code on it... ${NC}"
     echo -e "${BBlue}You can use ${BRed}git commit -m \"\" --no-verify${BBlue} to avoid this hook.${NC}"
     exit 1
 fi
