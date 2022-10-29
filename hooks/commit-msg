@@ -16,6 +16,7 @@ USER_EMAIL=$(git config user.email)
 # Verify if the user email is set to a devsquad email
 if [[ "$USER_EMAIL" != *"devsquad.com" ]]; then
     echo -e "${BRed}You are not using a DevSquad email as your user.email... ${NC}"
+    echo -e "${BBlue}You can use ${BRed}git config user.email \"type your devsquad email\"${BBlue} to set up the user.email.${NC}"
     exit 1
 fi
 
@@ -30,7 +31,7 @@ COMMIT_MESSAGE=$(cat "$1")
 
 if [ -z "$ISSUE_ID" ]; then
     echo -e "${BRed}Branch doesn't have Jira task code on it... ${NC}"
-    echo -e "${BBlue}You can use ${BRed}git commit -m \"\" --no-verify${BBlue} to avoid this hook.${NC}"
+    echo -e "${BBlue}Please, see the README file to learn what are the acceptable branch names.${NC}"
     exit 1
 fi
 
