@@ -13,8 +13,10 @@ pipelines:
           - docker-php-ext-enable redis
           - docker-php-ext-install pdo_mysql
           - docker-php-ext-install exif
+          - echo 'memory_limit = -1' >> /usr/local/etc/php/conf.d/docker-php-ram-limit.ini
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
           - php -r "file_exists('.env') || copy('.env.ci', '.env');"
+          - rm .env.testing
           - npm install
           - npm run build
           - composer --no-ansi --no-interaction --no-progress --no-cache install
@@ -28,31 +30,19 @@ pipelines:
         services:
           - mysql
           - redis
+          - mailhog
 
-#  branches:
-#    master:
-#      - step:
-#          name: Merge in customer repository
-#          script:
-#            - git remote add {{CUSTOMER_REPOSITORY_MANAGER}} "git@{{CUSTOMER_REPOSITORY_MANAGER}}.com:{{CUSTOMER_ORGANIZATION}}/{{CUSTOMER_REPOSITORY}}.git"
-#            - git fetch --depth=214748364
-#            - git push {{CUSTOMER_REPOSITORY_MANAGER}} $BITBUCKET_BRANCH
-#
-#    release:
-#      - step:
-#          name: Merge in customer repository
-#          script:
-#            - git remote add {{CUSTOMER_REPOSITORY_MANAGER}} "git@{{CUSTOMER_REPOSITORY_MANAGER}}.com:{{CUSTOMER_ORGANIZATION}}/{{CUSTOMER_REPOSITORY}}.git"
-#            - git fetch --depth=214748364
-#            - git push {{CUSTOMER_REPOSITORY_MANAGER}} $BITBUCKET_BRANCH
-#
-#    develop:
-#      - step:
-#          name: Merge in customer repository
-#          script:
-#            - git remote add {{CUSTOMER_REPOSITORY_MANAGER}} "git@{{CUSTOMER_REPOSITORY_MANAGER}}.com:{{CUSTOMER_ORGANIZATION}}/{{CUSTOMER_REPOSITORY}}.git"
-#            - git fetch --depth=214748364
-#            - git push {{CUSTOMER_REPOSITORY_MANAGER}} $BITBUCKET_BRANCH
+  branches:
+    '{master,release,develop}':
+      - step:
+          name: Merge in customer repository
+          script:
+            - |
+              if [ $DELIVERY ]; then
+                git remote add $CUSTOMER_REPOSITORY_MANAGER "git@$CUSTOMER_REPOSITORY_MANAGER.com:$CUSTOMER_ORGANIZATION/$CUSTOMER_REPOSITORY.git"
+                git fetch --depth=214748364
+                git push $CUSTOMER_REPOSITORY_MANAGER $BITBUCKET_BRANCH
+              fi
 
 definitions:
   services:
@@ -64,3 +54,9 @@ definitions:
 
     redis:
       image: redis
+
+    mailhog:
+      image: mailhog/mailhog:v1.0.1
+      ports:
+        - 1025:1025
+        - 8025:8025
