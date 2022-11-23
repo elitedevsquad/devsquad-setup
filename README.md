@@ -39,17 +39,17 @@ Also, add this variable to the .env.example file and to your .env file:
 SAIL_ENABLED=false
 ```
 
-
 ### If this is a Bitbucket repository
 
 The `bitbucket-pipelines.yml` file will be added to the root directory of your project, this file contains the
 configuration to test the project on every pull request, also it has a configuration to push the code of the
-branches `main`, `develop`, and `release` to the customer's repository on every push to those branches.
+branches `master`, `develop`, and `release` to the customer's repository on every push to those branches.
 
-The configuration to push the code to the customer's repository is commented, you need to uncomment it and replace the keys:
-`{{CUSTOMER_REPOSITORY_MANAGER}}` with `bitbucket` or `github`.
-`{{CUSTOMER_ORGANIZATION}}` with the customer's organization name.
-`{{CUSTOMER_REPOSITORY}}` with the customer's repository name.
+The configuration to push the code to the customer's repository is already done in bitbucket-pipelines.yml file, but to enable the this feature you must add these variables in `Bitbucket->Repository Settings->Repository Variables`:
+`DELIVERY` use with `true` of `false` values to enable/disable continuous delivery.
+`CUSTOMER_REPOSITORY_MANAGER` with `bitbucket` or `github`.
+`CUSTOMER_ORGANIZATION` with the customer's organization name.
+`CUSTOMER_REPOSITORY` with the customer's repository name.
 
 **ATTENTION: The instructions below should be followed only once you have the necessary information to uncomment the lines and replace the keys.**
 
