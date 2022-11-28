@@ -45,13 +45,17 @@ The `bitbucket-pipelines.yml` file will be added to the root directory of your p
 configuration to test the project on every pull request, also it has a configuration to push the code of the
 branches `master`, `develop`, and `release` to the customer's repository on every push to those branches.
 
-The configuration to push the code to the customer's repository is already done in bitbucket-pipelines.yml file, but to enable the this feature you must add these variables in `Bitbucket->Repository Settings->Repository Variables`:
+The configuration to push the code to the customer's repository is already done in bitbucket-pipelines.yml file, but to enable this feature you must add these variables in `Bitbucket -> Repository Settings -> Repository Variables`:
+
 `DELIVERY` use with `true` of `false` values to enable/disable continuous delivery.
+
 `CUSTOMER_REPOSITORY_MANAGER` with `bitbucket` or `github`.
+
 `CUSTOMER_ORGANIZATION` with the customer's organization name.
+
 `CUSTOMER_REPOSITORY` with the customer's repository name.
 
-**ATTENTION: The instructions below should be followed only once you have the necessary information to uncomment the lines and replace the keys.**
+**ATTENTION: The instructions above should be followed only once you have the necessary information to uncomment the lines and replace the keys.**
 
 ### If this project uses Vapor
 
