@@ -28,6 +28,7 @@ After running the command, please add these scripts in your composer.json file:
             "./vendor/bin/pint --test",
             "./vendor/bin/phpcs --standard=phpcs.xml",
             "./vendor/bin/phpmd app text ./phpmd.xml",
+            "./vendor/bin/phpstan analyse", // only for Laravel 8 or above, remove this line if you're running on a lower version.
             "./vendor/bin/phpunit"
         ]
     }

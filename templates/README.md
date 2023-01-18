@@ -18,9 +18,9 @@ _Remember to use **redis** for the CACHE_DRIVER, QUEUE_CONNECTION, SESSION_DRIVE
 
 _Packages that were installed and need some attention during the environment setup and coding time. Eg:_
 
-* Laravel Cashier
-* Laravel Horizon
-* Stripe
+* [Laravel Cashier](https://github.com/link-to-package)
+* [Laravel Horizon](https://github.com/link-to-package)
+* [Stripe](https://github.com/link-to-package)
 * Etc...
 
 ### Environment Setup
@@ -72,28 +72,6 @@ php artisan storage:link
 ```shell
 npm install
 npm run watch
-```
-
-#### 8. Run the DevSquad Setup command
-
-```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/elitedevsquad/devsquad-setup/master/run)"
-```
-
-```json
-{
-  "scripts": {
-    "fix": [
-      "./vendor/bin/pint"
-    ],
-    "verify": [
-      "./vendor/bin/pint --test",
-      "./vendor/bin/phpcs --standard=phpcs.xml",
-      "./vendor/bin/phpmd app text ./phpmd.xml",
-      "./vendor/bin/phpunit"
-    ]
-  }
-}
 ```
 
 ### Running Tests
