@@ -4,7 +4,7 @@ NC='\033[0m'
 BBlue='\033[1;34m'
 BRed='\033[1;31m'
 
-laravelVersion=$(composer show 'laravel/framework' | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1)
+laravelVersion=$(composer show 'laravel/framework' | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1 | cut -d. -f1 | grep -Eo "[0-9]+")
 sailEnabled=$(cat .env | grep SAIL_ENABLED | cut -d '=' -f2 | tr '[:upper:]' '[:lower:]')
 sailCommand=$([[ $sailEnabled = true ]] && echo "./vendor/bin/sail php" || echo "")
 
@@ -44,7 +44,7 @@ if [ $STATUS_CODE -ne 0 ]; then
     exit 1
 fi
 
-if [ "$laravelVersion" == v8* ]; then
+if [ "$laravelVersion" -ge 8 ]; then
     # ----------------------------------------------------------------------------------------
     # 4. Larastan
     echo "${BBlue}4. Larastan${NC}"

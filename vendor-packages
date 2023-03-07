@@ -18,7 +18,7 @@ echo "\n2. Install PHP Unit\n"
 if [ "$phpVersion" -le 7 ]; then
     composer require phpunit/phpunit "^8.5.8|^9.3.3" --dev
 else
-    composer require phpunit/phpunit "^9.3.3" --dev
+    composer require phpunit/phpunit "^10.0" --dev
 fi
 
 echo "\n3. Install PHP Mess Detector\n"
@@ -39,4 +39,4 @@ else
     echo "\n6. Install Paratest\n"
 fi
 
-composer require brianium/paratest "^6.2" --dev
+composer require brianium/paratest "^7.1" --dev

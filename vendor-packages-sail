@@ -9,7 +9,7 @@ for i in "${PHPVERSION[@]}"; do
 done
 phpVersion=$(echo $max | cut -c 1)
 
-laravelVersion=$(./vendor/bin/sail composer show 'laravel/framework' | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1)
+laravelVersion=$(./vendor/bin/sail composer show 'laravel/framework' | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1 | cut -d. -f1 | grep -Eo "[0-9]+")
 
 echo "\n1. Update composer.lock file\n"
 ./vendor/bin/sail composer update
@@ -18,7 +18,7 @@ echo "\n2. Install PHP Unit\n"
 if [ "$phpVersion" -le "7" ]; then
     ./vendor/bin/sail composer require phpunit/phpunit "^8.5.8|^9.3.3" --dev
 else
-    ./vendor/bin/sail composer require phpunit/phpunit "^9.3.3" --dev
+    ./vendor/bin/sail composer require phpunit/phpunit "^10.0" --dev
 fi
 
 echo "\n3. Install PHP Mess Detector\n"
@@ -32,7 +32,7 @@ echo "\n5. Install Laravel Pint\n"
 
 echo $laravelVersion
 
-if [ "$laravelVersion" == v8* ]; then
+if [ "$laravelVersion" -ge 8 ]; then
     echo "\n6. Install Larastan\n"
     ./vendor/bin/sail composer require --dev nunomaduro/larastan
 
@@ -41,4 +41,4 @@ else
     echo "\n6. Install Paratest\n"
 fi
 
-./vendor/bin/sail composer require brianium/paratest "^6.2" --dev
+./vendor/bin/sail composer require brianium/paratest "^7.1" --dev

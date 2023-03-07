@@ -1,13 +1,13 @@
 ## What?
 
-*Please tell us which issues this PR is related on.*
+*Please tell us which issues this PR is related to.*
 
 - [JIRA-123](https://example.com)
 - [JIRA-456](https://example.com)
 
 ## Depends on (optional)
 
-*Please, tell us if this PR depends on another PR in same or in another repository.*
+*Please, tell us if this PR depends on another PR in the same or in another repository.*
 
 - [#1](https://example.com)
 - [#2](https://example.com)
@@ -15,7 +15,7 @@
 ## Why?
 
 *Please tell us what business or engineering goal this change achieves. This section will help us to understand your
-vision about the task.*
+vision of the task.*
 
 ## Checklist:
 
@@ -49,12 +49,12 @@ vision about the task.*
 influence the tester to follow just your instructions, in other words, be simple. For example:*
 
 - Go to the admin panel
-- Access the feature by clicking on XYZ link at the sidebar
+- Access the feature by clicking on XYZ link on the sidebar
 - Etc...
 
 ## Screenshot/Video (optional)
 
-*Record a loom video or take some screenshots of the feature*
+*Record a Loom video or take some screenshots of the feature*
 
 ## Anything else? (optional)
 
