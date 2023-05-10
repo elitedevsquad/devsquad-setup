@@ -35,12 +35,7 @@ if [ -z "$ISSUE_ID" ]; then
     exit 1
 fi
 
-if [[ $BRANCH_NAME != "feature"* ]]
-  && [[ $BRANCH_NAME != "bugfix"* ]]
-  && [[ $BRANCH_NAME != "hotfix"* ]]
-  && [[ $BRANCH_NAME != "release"* ]]
-  && [[ $BRANCH_NAME != "task"* ]]
-  && [[ $BRANCH_NAME != "enhancement"* ]]; then
+if [[ $BRANCH_NAME != "feature"* ]] && [[ $BRANCH_NAME != "bugfix"* ]] && [[ $BRANCH_NAME != "hotfix"* ]] && [[ $BRANCH_NAME != "release"* ]] && [[ $BRANCH_NAME != "task"* ]] && [[ $BRANCH_NAME != "enhancement"* ]]; then
     echo -e "${BRed}Branch name prefix is not valid... ${NC}"
     echo -e "${BBlue}Please, see the README file to learn what are the acceptable branch names.${NC}"
     exit 1
