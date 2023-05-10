@@ -35,6 +35,12 @@ if [ -z "$ISSUE_ID" ]; then
     exit 1
 fi
 
+if [[ $BRANCH_NAME != "feature"* ]] && [[ $BRANCH_NAME != "bugfix"* ]] && [[ $BRANCH_NAME != "hotfix"* ]] && [[ $BRANCH_NAME != "release"* ]] && [[ $BRANCH_NAME != "task"* ]] && [[ $BRANCH_NAME != "enhancement"* ]]; then
+    echo -e "${BRed}Branch name prefix is not valid... ${NC}"
+    echo -e "${BBlue}Please, see the README file to learn what are the acceptable branch names.${NC}"
+    exit 1
+fi
+
 # Prevent adding a JIRA issue key in commits that already have a JIRA issue key
 # i.g. RA-1: RA-1: my feature
 if [[ $COMMIT_MESSAGE == $ISSUE_ID* ]]; then
