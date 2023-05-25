@@ -16,7 +16,7 @@ pipelines:
           - echo 'memory_limit = -1' >> /usr/local/etc/php/conf.d/docker-php-ram-limit.ini
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
           - php -r "file_exists('.env') || copy('.env.ci', '.env');"
-          - rm .env.testing
+          - rm -f .env.testing
           - npm install
           - npm run build
           - composer --no-ansi --no-interaction --no-progress --no-cache install
